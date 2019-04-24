@@ -1,0 +1,274 @@
+{ "characters": 
+        [
+                {
+                        "name" : "Antony",
+                        "answers" : 
+                        [
+                                "Antony: What’s your kink?", 
+                                "Antony: What’s the last book you read?", 
+                                "Antony: What is your favorite joke?", 
+                                "Antony: How’s your relationship with your parents?",
+                                "Antony: What’s your idea of a perfect first date?", 
+                                "Antony: If we went on vacation, where would you take me?", 
+                                "Antony: What sort of music do you listen to?", 
+                                "Antony: What do you think is fairer than a summer’s day?", 
+                                "Antony: How would you discipline our children?",
+                                "Antony: What would you do if you saw a ghost?", 
+                                "Antony: What’s your love language?", 
+                                "Antony: What’s your darkest secret?", 
+                                "Antony: We’re at a cocktail party - pick your poison.", 
+                                "Antony: How do you feel about Brexit?", 
+                                "Antony: I love poetry - write me a poem!", 
+                                "Antony: What’s your relationship to god?", 
+                                "Antony: Who’s your role model?",
+                                "Antony: I appreciate culinary delights. What tantalizes your palate?", 
+                                "Antony: What’s your guilty pleasure?", 
+                                "Antony: What’s your safeword?"
+                        ]
+                },
+        
+                {
+                        "name" : "Beatrice",
+                        "answers" :
+                        [
+                                "Beatrice: What’s your kink?",
+                                "Beatrice: What’s the last book you read?",
+                                "Beatrice: What is your favorite joke?",
+                                "Beatrice: How’s your relationship with your parents?",
+                                "Beatrice: What’s your idea of a perfect first date?",
+                                "Beatrice: If we went on vacation, where would you take me?",
+                                "Beatrice: What sort of music do you listen to?",
+                                "Beatrice: What do you think is fairer than a summer’s day?",
+                                "Beatrice: How would you discipline our children?",
+                                "Beatrice: What would you do if you saw a ghost?",
+                                "Beatrice: What’s your love language?",
+                                "Beatrice: What’s your darkest secret?",
+                                "Beatrice: We’re at a cocktail party - pick your poison.",
+                                "Beatrice: How do you feel about Brexit?",
+                                "Beatrice: I love poetry - write me a poem!",
+                                "Beatrice: What’s your relationship to god?",
+                                "Beatrice: Who’s your role model?",
+                                "Beatrice: I appreciate culinary delights. What tantalizes your palate?",
+                                "Beatrice: What’s your guilty pleasure?",
+                                "Beatrice: What’s your safeword?"
+                        ]
+                },
+        
+                {
+                        "name" : "Benedick",
+                        "answers" :
+                        [
+                                "Benedick: What’s your kink?",
+                                "Benedick: What’s the last book you read?",
+                                "Benedick: What is your favorite joke?",
+                                "Benedick: How’s your relationship with your parents?",
+                                "Benedick: What’s your idea of a perfect first date?",
+                                "Benedick: If we went on vacation, where would you take me?",
+                                "Benedick: What sort of music do you listen to?",
+                                "Benedick: What do you think is fairer than a summer’s day?",
+                                "Benedick: How would you discipline our children?",
+                                "Benedick: What would you do if you saw a ghost?",
+                                "Benedick: What’s your love language?",
+                                "Benedick: What’s your darkest secret?",
+                                "Benedick: We’re at a cocktail party - pick your poison.",
+                                "Benedick: How do you feel about Brexit?",
+                                "Benedick: I love poetry - write me a poem!",
+                                "Benedick: What’s your relationship to god?",
+                                "Benedick: Who’s your role model?",
+                                "Benedick: I appreciate culinary delights. What tantalizes your palate?",
+                                "Benedick: What’s your guilty pleasure?",
+                                "Benedick: What’s your safeword?"
+                        ]
+                },
+        
+                {
+                        "name" : "Cleopatra",
+                        "answers" :
+                        [
+                                "Cleopatra: What’s your kink?",
+                                "Cleopatra: What’s the last book you read?",
+                                "Cleopatra: What is your favorite joke?",
+                                "Cleopatra: How’s your relationship with your parents?",
+                                "Cleopatra: What’s your idea of a perfect first date?",
+                                "Cleopatra: If we went on vacation, where would you take me?",
+                                "Cleopatra: What sort of music do you listen to?",
+                                "Cleopatra: What do you think is fairer than a summer’s day?",
+                                "Cleopatra: How would you discipline our children?",
+                                "Cleopatra: What would you do if you saw a ghost?",
+                                "Cleopatra: What’s your love language?",
+                                "Cleopatra: What’s your darkest secret?",
+                                "Cleopatra: We’re at a cocktail party - pick your poison.",
+                                "Cleopatra: How do you feel about Brexit?",
+                                "Cleopatra: I love poetry - write me a poem!",
+                                "Cleopatra: What’s your relationship to god?",
+                                "Cleopatra: Who’s your role model?",
+                                "Cleopatra: I appreciate culinary delights. What tantalizes your palate?",
+                                "Cleopatra: What’s your guilty pleasure?",
+                                "Cleopatra: What’s your safeword?"
+                        ]
+                },
+        
+                {
+                        "name" : "Hamlet",
+                        "answers" :
+                        [
+                                "Hamlet: What’s your kink?",
+                                "Hamlet: What’s the last book you read?",
+                                "Hamlet: What is your favorite joke?",
+                                "Hamlet: How’s your relationship with your parents?",
+                                "Hamlet: What’s your idea of a perfect first date?",
+                                "Hamlet: If we went on vacation, where would you take me?",
+                                "Hamlet: What sort of music do you listen to?",
+                                "Hamlet: What do you think is fairer than a summer’s day?",
+                                "Hamlet: How would you discipline our children?",
+                                "Hamlet: What would you do if you saw a ghost?",
+                                "Hamlet: What’s your love language?",
+                                "Hamlet: What’s your darkest secret?",
+                                "Hamlet: We’re at a cocktail party - pick your poison.",
+                                "Hamlet: How do you feel about Brexit?",
+                                "Hamlet: I love poetry - write me a poem!",
+                                "Hamlet: What’s your relationship to god?",
+                                "Hamlet: Who’s your role model?",
+                                "Hamlet: I appreciate culinary delights. What tantalizes your palate?",
+                                "Hamlet: What’s your guilty pleasure?",
+                                "Hamlet: What’s your safeword?"
+                        ]
+                },
+        
+                {
+                        "name" : "Juliet",
+                        "answers" :
+                        [
+                                "Juliet: What’s your kink?",
+                                "Juliet: What’s the last book you read?",
+                                "Juliet: What is your favorite joke?",
+                                "Juliet: How’s your relationship with your parents?",
+                                "Juliet: What’s your idea of a perfect first date?",
+                                "Juliet: If we went on vacation, where would you take me?",
+                                "Juliet: What sort of music do you listen to?",
+                                "Juliet: What do you think is fairer than a summer’s day?",
+                                "Juliet: How would you discipline our children?",
+                                "Juliet: What would you do if you saw a ghost?",
+                                "Juliet: What’s your love language?",
+                                "Juliet: What’s your darkest secret?",
+                                "Juliet: We’re at a cocktail party - pick your poison.",
+                                "Juliet: How do you feel about Brexit?",
+                                "Juliet: I love poetry - write me a poem!",
+                                "Juliet: What’s your relationship to god?",
+                                "Juliet: Who’s your role model?",
+                                "Juliet: I appreciate culinary delights. What tantalizes your palate?",
+                                "Juliet: What’s your guilty pleasure?",
+                                "Juliet: What’s your safeword?"
+                        ]
+                },
+        
+                {
+                        "name" : "Kate",
+                        "answers" :
+                        [
+                                "Kate: What’s your kink?",
+                                "Kate: What’s the last book you read?",
+                                "Kate: What is your favorite joke?",
+                                "Kate: How’s your relationship with your parents?",
+                                "Kate: What’s your idea of a perfect first date?",
+                                "Kate: If we went on vacation, where would you take me?",
+                                "Kate: What sort of music do you listen to?",
+                                "Kate: What do you think is fairer than a summer’s day?",
+                                "Kate: How would you discipline our children?",
+                                "Kate: What would you do if you saw a ghost?",
+                                "Kate: What’s your love language?",
+                                "Kate: What’s your darkest secret?",
+                                "Kate: We’re at a cocktail party - pick your poison.",
+                                "Kate: How do you feel about Brexit?",
+                                "Kate: I love poetry - write me a poem!",
+                                "Kate: What’s your relationship to god?",
+                                "Kate: Who’s your role model?",
+                                "Kate: I appreciate culinary delights. What tantalizes your palate?",
+                                "Kate: What’s your guilty pleasure?",
+                                "Kate: What’s your safeword?"
+                        ]
+                },
+        
+                {
+                        "name" : "Ophelia",
+                        "answers" :
+                        [
+                                "Ophelia: What’s your kink?",
+                                "Ophelia: What’s the last book you read?",
+                                "Ophelia: What is your favorite joke?",
+                                "Ophelia: How’s your relationship with your parents?",
+                                "Ophelia: What’s your idea of a perfect first date?",
+                                "Ophelia: If we went on vacation, where would you take me?",
+                                "Ophelia: What sort of music do you listen to?",
+                                "Ophelia: What do you think is fairer than a summer’s day?",
+                                "Ophelia: How would you discipline our children?",
+                                "Ophelia: What would you do if you saw a ghost?",
+                                "Ophelia: What’s your love language?",
+                                "Ophelia: What’s your darkest secret?",
+                                "Ophelia: We’re at a cocktail party - pick your poison.",
+                                "Ophelia: How do you feel about Brexit?",
+                                "Ophelia: I love poetry - write me a poem!",
+                                "Ophelia: What’s your relationship to god?",
+                                "Ophelia: Who’s your role model?",
+                                "Ophelia: I appreciate culinary delights. What tantalizes your palate?",
+                                "Ophelia: What’s your guilty pleasure?",
+                                "Ophelia: What’s your safeword?"
+                        ]
+                },
+        
+                {
+                        "name" : "Petruchio",
+                        "answers" :
+                        [
+                                "Petruchio: What’s your kink?",
+                                "Petruchio: What’s the last book you read?",
+                                "Petruchio: What is your favorite joke?",
+                                "Petruchio: How’s your relationship with your parents?",
+                                "Petruchio: What’s your idea of a perfect first date?",
+                                "Petruchio: If we went on vacation, where would you take me?",
+                                "Petruchio: What sort of music do you listen to?",
+                                "Petruchio: What do you think is fairer than a summer’s day?",
+                                "Petruchio: How would you discipline our children?",
+                                "Petruchio: What would you do if you saw a ghost?",
+                                "Petruchio: What’s your love language?",
+                                "Petruchio: What’s your darkest secret?",
+                                "Petruchio: We’re at a cocktail party - pick your poison.",
+                                "Petruchio: How do you feel about Brexit?",
+                                "Petruchio: I love poetry - write me a poem!",
+                                "Petruchio: What’s your relationship to god?",
+                                "Petruchio: Who’s your role model?",
+                                "Petruchio: I appreciate culinary delights. What tantalizes your palate?",
+                                "Petruchio: What’s your guilty pleasure?",
+                                "Petruchio: What’s your safeword?"
+                        ]
+                },
+        
+                {
+                        "name" : "Romeo",
+                        "answers" :  
+                        [
+                                "Romeo: What’s your kink?",
+                                "Romeo: What’s the last book you read?",
+                                "Romeo: What is your favorite joke?",
+                                "Romeo: How’s your relationship with your parents?",
+                                "Romeo: What’s your idea of a perfect first date?",
+                                "Romeo: If we went on vacation, where would you take me?",
+                                "Romeo: What sort of music do you listen to?",
+                                "Romeo: What do you think is fairer than a summer’s day?",
+                                "Romeo: How would you discipline our children?",
+                                "Romeo: What would you do if you saw a ghost?",
+                                "Romeo: What’s your love language?",
+                                "Romeo: What’s your darkest secret?",
+                                "Romeo: We’re at a cocktail party - pick your poison.",
+                                "Romeo: How do you feel about Brexit?",
+                                "Romeo: I love poetry - write me a poem!",
+                                "Romeo: What’s your relationship to god?",
+                                "Romeo: Who’s your role model?",
+                                "Romeo: I appreciate culinary delights. What tantalizes your palate?",
+                                "Romeo: What’s your guilty pleasure?",
+                                "Romeo: What’s your safeword?"
+                        ]
+                }
+        ]
+}
+        
