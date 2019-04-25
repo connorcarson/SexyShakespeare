@@ -7,21 +7,16 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     
-    public Object[] characters;
-    public Vector3[] contestantPos;
+    public GameObject[] characters;
+    private GameObject[] contestantPos;
 
     public int contestant1Index;
     public int contestant2Index;
     public int contestant3Index;
 
-    //public Transform pos1;
-    //public Transform pos2;
-    //public Transform pos3;
-    //public Transform[] contestantPositions;
-
-    //public Vector3 contestantPos1;
-    //public Vector3 contestantPos2;
-    //public Vector3 contestantPos3;
+    public GameObject pos1;
+    public GameObject pos2;
+    public GameObject pos3;
 
     public int pos1Index;
     public int pos2Index;
@@ -39,39 +34,35 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        //initialize all of our character prefabs as game objects
+        #region Initialize all char prefabs
+
+        GameObject antony = Resources.Load<GameObject>("Prefabs/Characters/Antony");
+        GameObject beatrice = Resources.Load<GameObject>("Prefabs/Characters/Beatrice");
+        GameObject benedick = Resources.Load<GameObject>("Prefabs/Characters/Benedick");
+        GameObject cleopatra = Resources.Load<GameObject>("Prefabs/Characters/Cleopatra");
+        GameObject hamlet = Resources.Load<GameObject>("Prefabs/Characters/Hamlet");
+        GameObject juliet = Resources.Load<GameObject>("Prefabs/Characters/Juliet");
+        GameObject kate = Resources.Load<GameObject>("Prefabs/Characters/Kate");
+        GameObject ophelia = Resources.Load<GameObject>("Prefabs/Characters/Ophelia");
+        GameObject petruchio = Resources.Load<GameObject>("Prefabs/Characters/Petruchio");
+        GameObject romeo = Resources.Load<GameObject>("Prefabs/Characters/Romeo");
+
+        #endregion
         
-        characters = Resources.LoadAll("Prefabs/Characters") as Object[];
-
-        /*var antony = Resources.Load<GameObject>("Prefabs/Characters/Antony");
-        var beatrice = Resources.Load<GameObject>("PrePrefabs/Characters/Beatrice");
-        var benedick = Resources.Load<GameObject>("PrePrefabs/Characters/Benedick");
-        var cleopatra = Resources.Load<GameObject>("PrePrefabs/Characters/Cleopatra");
-        var hamlet = Resources.Load<GameObject>("PrePrefabs/Characters/Hamlet");
-        var juliet = Resources.Load<GameObject>("PrePrefabs/Characters/Juliet");
-        var kate = Resources.Load<GameObject>("PrePrefabs/Characters/Kate");
-        var ophelia = Resources.Load<GameObject>("PrePrefabs/Characters/Ophelia");
-        var petruchio = Resources.Load<GameObject>("Prefabs/Characters/Petruchio");
-        var romeo = Resources.Load<GameObject>("PrePrefabs/Characters/Romeo");
-
-        characters = new[] {antony, beatrice, benedick, cleopatra, hamlet, juliet, kate, ophelia, petruchio, romeo};*/
-
-        //contestantPositions = new[] {pos2, pos2, pos3};
+        //plug all our character game objects into our array of characters
+        characters = new[] {antony, beatrice, benedick, cleopatra, hamlet, juliet, kate, ophelia, petruchio, romeo};
+        
+        //plug all of our empty game objects into our array of game objects
+        contestantPos = new[] {pos1, pos2, pos3};
         
         FindPlayersPartner();
         FindContestants();
         ShuffleContestants();
-        CreateContestants();
-        
-        print(characters[4].name);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void FindPlayersPartner()
+    void FindPlayersPartner() //find contestant 1's index numbers
     {
         switch (CharacterSelection.instance.playerIndex)
         {
@@ -110,37 +101,53 @@ public class GameManager : MonoBehaviour
         }
     }
     
-    void FindContestants()
+    void FindContestants() //find contestant 2 and 3's index numbers
     {        
-        contestant2Index = Random.Range(0, characters.Length);
-        contestant3Index = Random.Range(0, characters.Length);
+        contestant2Index = Random.Range(0, characters.Length); //contestant 2's index number is a random number between 0 and 9 A.K.A. our characters index numbers in the char array
+        contestant3Index = Random.Range(0, characters.Length); //repeat for contestant 3
 
-        if (contestant2Index == contestant1Index || 
-            contestant3Index == contestant1Index || 
-            contestant2Index == contestant3Index ||
-            contestant2Index == CharacterSelection.instance.playerIndex ||
-            contestant3Index == CharacterSelection.instance.playerIndex)
+        if (contestant2Index == contestant1Index || //if the index of contestant 2 is equal to contestant 1's number
+            contestant3Index == contestant1Index || //or if the index of contestant 3 is equal to contestant 1's number
+            contestant2Index == contestant3Index || //or if the index of contest 2 or 3 are equal to each other
+            contestant2Index == CharacterSelection.instance.playerIndex || //or if the index of 2 is equal to the player char index
+            contestant3Index == CharacterSelection.instance.playerIndex) //or if the index of 3 is equal to the player char index
         {
-            FindContestants();
+            FindContestants(); //start this function over A.K.A. re-randomize our character index numbers until there are no repeats
         }
     }
 
-    void ShuffleContestants()
+    void ShuffleContestants() //shuffle the placement of the contestants
     {
-        pos1Index = Random.Range(0, contestantPos.Length);
-        pos2Index = Random.Range(0, contestantPos.Length);
-        pos3Index = Random.Range(0, contestantPos.Length);
+        pos1Index = Random.Range(0, contestantPos.Length); //position 1's index number is a random number between 0 and 2 A.K.A. the length of our positions array
+        pos2Index = Random.Range(0, contestantPos.Length); //repeat for position 2
+        pos3Index = Random.Range(0, contestantPos.Length); //repeat for position 3
 
-        if (pos1Index == pos2Index || pos2Index == pos3Index || pos3Index == pos1Index)
+        if (pos1Index == pos2Index || pos2Index == pos3Index || pos3Index == pos1Index) //if any position index numbers are equal to each other
         {
-            ShuffleContestants();
+            ShuffleContestants(); //start this function over
+        }
+        else //otherwise
+        {
+            GameObject contestant1 = Instantiate(characters[contestant1Index], //make an object from the array of prefabs based on contestant 1's index
+                contestantPos[pos1Index].transform.position, Quaternion.identity); //position the object at one of the positions in the position array, according to its random pos index
+            GameObject contestant2 = Instantiate(characters[contestant2Index], //repeat for contestant2
+                contestantPos[pos2Index].transform.position, Quaternion.identity);
+            GameObject contestant3 = Instantiate(characters[contestant3Index], //repeat for contestant3
+                contestantPos[pos3Index].transform.position, Quaternion.identity);
+
+            contestant1.transform.SetParent(contestantPos[pos1Index].transform); //parent contestant 1 to the empty transform where it's located
+            contestant2.transform.SetParent(contestantPos[pos2Index].transform); //repeat for contestant 2
+            contestant3.transform.SetParent(contestantPos[pos3Index].transform); //repeat for contestant 3
+
+            contestant1.AddComponent<AssignIndex>().fixedCharIndex = contestant1Index; //assign character index as a public variable to the contestant1 game object
+            contestant2.AddComponent<AssignIndex>().fixedCharIndex = contestant2Index; //repeat for contestant 2
+            contestant3.AddComponent<AssignIndex>().fixedCharIndex = contestant3Index; //repeat for contestant 3
         }
     }
 
-    void CreateContestants()
+    //this a class just for assigning the char index as a  public variable on a component to our contestant game objects
+    public class AssignIndex : MonoBehaviour 
     {
-        Instantiate(characters[contestant1Index], contestantPos[pos1Index], Quaternion.identity);
-        Instantiate(characters[contestant2Index], contestantPos[pos2Index], Quaternion.identity);
-        Instantiate(characters[contestant3Index], contestantPos[pos3Index], Quaternion.identity);
+        public int fixedCharIndex;
     }
 }

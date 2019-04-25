@@ -127,7 +127,7 @@ public class QAManager : MonoBehaviour
         }
 
         answerIndex = questionIndex;
-        charIndex = GameManager.instance.contestant1Index;
+        charIndex = GameManager.instance.pos1.GetComponentInChildren<GameManager.AssignIndex>().fixedCharIndex;
         answerPool = characterData.characters[charIndex].answers;
         answerText.text = answerPool[answerIndex];
     }
@@ -139,12 +139,12 @@ public class QAManager : MonoBehaviour
         switch (contestantTurn)
         {
             case 2:
-                charIndex = GameManager.instance.contestant2Index;
+                charIndex = GameManager.instance.pos2.GetComponentInChildren<GameManager.AssignIndex>().fixedCharIndex;
                 answerPool = characterData.characters[charIndex].answers;
                 answerText.text = answerPool[answerIndex];
                 break;
             case 3:
-                charIndex = GameManager.instance.contestant3Index;
+                charIndex = GameManager.instance.pos3.GetComponentInChildren<GameManager.AssignIndex>().fixedCharIndex;
                 answerPool = characterData.characters[charIndex].answers;
                 answerText.text = answerPool[answerIndex];
                 break;
