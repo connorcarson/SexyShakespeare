@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,18 +11,42 @@ public class GameManager : MonoBehaviour
     public GameObject[] characters;
     private GameObject[] contestantPos;
 
+    public GameObject contestant1Select;
+    public GameObject contestant2Select;
+    public GameObject contestant3Select;
+    public GameObject pos1;
+    public GameObject pos2;
+    public GameObject pos3;
+    public GameObject roundText;
+    public GameObject winnerSelectText;
+
+    public int pos1Index;
+    public int pos2Index;
+    public int pos3Index; 
     public int contestant1Index;
     public int contestant2Index;
     public int contestant3Index;
 
-    public GameObject pos1;
-    public GameObject pos2;
-    public GameObject pos3;
+    private Vector3 _newPoint;
+    private Vector3 _newPoint2;
+    private Vector3 _newPoint3;
 
-    public int pos1Index;
-    public int pos2Index;
-    public int pos3Index;
-    
+    public int roundNum = 1;
+    public int maxRounds = 6;
+
+    public int Rounds
+    {
+        get { return roundNum; }
+        set
+        {
+            roundNum = value; 
+            if(roundNum > maxRounds)
+            {
+                roundNum = maxRounds;
+            }
+    }
+}
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +85,32 @@ public class GameManager : MonoBehaviour
         FindPlayersPartner();
         FindContestants();
         ShuffleContestants();
+
+        _newPoint = Camera.main.WorldToScreenPoint(pos1.transform.position);
+        _newPoint2 = Camera.main.WorldToScreenPoint(pos2.transform.position);
+        _newPoint3 = Camera.main.WorldToScreenPoint(pos3.transform.position);
+
+        contestant1Select.transform.position = _newPoint;
+        contestant2Select.transform.position = _newPoint2;
+        contestant3Select.transform.position = _newPoint3;
+    }
+
+    void Update()
+    {
+        roundText.GetComponent<Text>().text = "Round: " + Rounds;
+        
+        if (roundNum == maxRounds)
+        {
+            roundText.SetActive(false);
+            winnerSelectText.SetActive(true);
+            QAManager.instance.question1Button.SetActive(false);
+            QAManager.instance.question2Button.SetActive(false);
+            QAManager.instance.question3Button.SetActive(false);
+            
+            contestant1Select.GetComponent<Button>().interactable = true;
+            contestant2Select.GetComponent<Button>().interactable = true;
+            contestant3Select.GetComponent<Button>().interactable = true;
+        }
     }
 
     void FindPlayersPartner() //find contestant 1's index numbers
@@ -141,7 +192,7 @@ public class GameManager : MonoBehaviour
 
             contestant1.AddComponent<AssignIndex>().fixedCharIndex = contestant1Index; //assign character index as a public variable to the contestant1 game object
             contestant2.AddComponent<AssignIndex>().fixedCharIndex = contestant2Index; //repeat for contestant 2
-            contestant3.AddComponent<AssignIndex>().fixedCharIndex = contestant3Index; //repeat for contestant 3
+            contestant3.AddComponent<AssignIndex>().fixedCharIndex = contestant3Index; //repeat for contestant 3    
         }
     }
 
@@ -149,5 +200,23 @@ public class GameManager : MonoBehaviour
     public class AssignIndex : MonoBehaviour 
     {
         public int fixedCharIndex;
+    }
+    
+    public void WinnerSelect(int posIndex)
+    {
+        switch (posIndex)
+        {
+            case 1:
+                print("You've selected: " + instance.pos1.transform.GetChild(0).name + " as your partner!");
+                break;
+            case 2:
+                print("You've selected: " + instance.pos2.transform.GetChild(0).name + " as your partner!");
+                break;
+            case 3:
+                print("You've selected: " + instance.pos3.transform.GetChild(0).name + " as your partner!");
+                break;
+            default:
+                break;
+        }    
     }
 }
