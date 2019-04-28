@@ -1,0 +1,173 @@
+{ "player":
+[
+        {
+                "name" : "Antony",
+                "pairing" :
+                [
+                        "Antony, you've selected Antony!",
+                        "Antony, you've selected Beatrice!",
+                        "Antony, you've selected Benedick!",
+                        "Antony, you've selected Cleopatra!",
+                        "Antony, you've selected Hamlet!",
+                        "Antony, you've selected Juliet!",
+                        "Antony, you've selected Kate!",
+                        "Antony, you've selected Ophelia!",
+                        "Antony, you've selected Petruchio!",
+                        "Antony, you've selected Romeo!"
+                ]
+        },
+
+        {
+                "name" : "Beatrice",
+                "pairing" :
+                [
+                        "Beatrice, you've selected Antony!",
+                        "Beatrice, you've selected Beatrice!",
+                        "Beatrice, you've selected Benedick!",
+                        "Beatrice, you've selected Cleopatra!",
+                        "Beatrice, you've selected Hamlet!",
+                        "Beatrice, you've selected Juliet!",
+                        "Beatrice, you've selected Kate!",
+                        "Beatrice, you've selected Ophelia!",
+                        "Beatrice, you've selected Petruchio!",
+                        "Beatrice, you've selected Romeo!"
+                ]
+        },
+
+        {
+                "name" : "Benedick",
+                "pairing" :
+                [
+                        "Benedick, you've selected Antony!",
+                        "Benedick, you've selected Beatrice!",
+                        "Benedick, you've selected Benedick!",
+                        "Benedick, you've selected Cleopatra!",
+                        "Benedick, you've selected Hamlet!",
+                        "Benedick, you've selected Juliet!",
+                        "Benedick, you've selected Kate!",
+                        "Benedick, you've selected Ophelia!",
+                        "Benedick, you've selected Petruchio!",
+                        "Benedick, you've selected Romeo!"
+                ]
+        },
+
+        {
+                "name" : "Cleopatra",
+                "pairing" :
+                [
+                        "Cleopatra, you've selected Antony!",
+                        "Cleopatra, you've selected Beatrice!",
+                        "Cleopatra, you've selected Benedick!",
+                        "Cleopatra, you've selected Cleopatra!",
+                        "Cleopatra, you've selected Hamlet!",
+                        "Cleopatra, you've selected Juliet!",
+                        "Cleopatra, you've selected Kate!",
+                        "Cleopatra, you've selected Ophelia!",
+                        "Cleopatra, you've selected Petruchio!",
+                        "Cleopatra, you've selected Romeo!"
+                ]
+        },
+
+        {
+                "name" : "Hamlet",
+                "pairing" :
+                [
+                        "Hamlet, you've selected Antony!",
+                        "Hamlet, you've selected Beatrice!",
+                        "Hamlet, you've selected Benedick!",
+                        "Hamlet, you've selected Cleopatra!",
+                        "Hamlet, you've selected Hamlet!",
+                        "Hamlet, you've selected Juliet!",
+                        "Hamlet, you've selected Kate!",
+                        "Hamlet, you've selected Ophelia!",
+                        "Hamlet, you've selected Petruchio!",
+                        "Hamlet, you've selected Romeo!"
+                ]
+        },
+
+        {
+                "name" : "Juliet",
+                "pairing" :
+                [
+                        "Juliet, you've selected Antony!",
+                        "Juliet, you've selected Beatrice!",
+                        "Juliet, you've selected Benedick!",
+                        "Juliet, you've selected Cleopatra!",
+                        "Juliet, you've selected Hamlet!",
+                        "Juliet, you've selected Juliet!",
+                        "Juliet, you've selected Kate!",
+                        "Juliet, you've selected Ophelia!",
+                        "Juliet, you've selected Petruchio!",
+                        "Juliet, you've selected Romeo!"
+                ]
+        },
+
+        {
+                "name" : "Kate",
+                "pairing" :
+                [
+                        "Kate, you've selected Antony!",
+                        "Kate, you've selected Beatrice!",
+                        "Kate, you've selected Benedick!",
+                        "Kate, you've selected Cleopatra!",
+                        "Kate, you've selected Hamlet!",
+                        "Kate, you've selected Juliet!",
+                        "Kate, you've selected Kate!",
+                        "Kate, you've selected Ophelia!",
+                        "Kate, you've selected Petruchio!",
+                        "Kate, you've selected Romeo!"
+                ]
+        },
+
+        {
+                "name" : "Ophelia",
+                "pairing" :
+                [
+                        "Ophelia, you've selected Antony!",
+                        "Ophelia, you've selected Beatrice!",
+                        "Ophelia, you've selected Benedick!",
+                        "Ophelia, you've selected Cleopatra!",
+                        "Ophelia, you've selected Hamlet!",
+                        "Ophelia, you've selected Juliet!",
+                        "Ophelia, you've selected Kate!",
+                        "Ophelia, you've selected Ophelia!",
+                        "Ophelia, you've selected Petruchio!",
+                        "Ophelia, you've selected Romeo!"
+                ]
+        },
+
+        {
+                "name" : "Petruchio",
+                "pairing" :
+                [
+                        "Petruchio, you've selected Antony!",
+                        "Petruchio, you've selected Beatrice!",
+                        "Petruchio, you've selected Benedick!",
+                        "Petruchio, you've selected Cleopatra!",
+                        "Petruchio, you've selected Hamlet!",
+                        "Petruchio, you've selected Juliet!",
+                        "Petruchio, you've selected Kate!",
+                        "Petruchio, you've selected Ophelia!",
+                        "Petruchio, you've selected Petruchio!",
+                        "Petruchio, you've selected Romeo!"
+                ]
+        },
+
+        {
+                "name" : "Romeo",
+                "pairing" :
+                [
+                        "Romeo, you've selected Antony!",
+                        "Romeo, you've selected Beatrice!",
+                        "Romeo, you've selected Benedick!",
+                        "Romeo, you've selected Cleopatra!",
+                        "Romeo, you've selected Hamlet!",
+                        "Romeo, you've selected Juliet!",
+                        "Romeo, you've selected Kate!",
+                        "Romeo, you've selected Ophelia!",
+                        "Romeo, you've selected Petruchio!",
+                        "Romeo, you've selected Romeo!"
+                ]
+        }
+]
+}

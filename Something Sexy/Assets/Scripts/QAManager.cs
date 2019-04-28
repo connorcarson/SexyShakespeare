@@ -11,6 +11,7 @@ public class QAManager : MonoBehaviour
     
     private string _questionJson;
     private string _answerJson;
+    private string _endingJson;
 
     public string[] questionPool;
     public string[] answerPool;
@@ -43,6 +44,7 @@ public class QAManager : MonoBehaviour
 
     public QuestionData questions;
     public AllResponses characterData;
+    public AllEndings endingData;
     
     // Start is called before the first frame update
     void Start()
@@ -66,6 +68,10 @@ public class QAManager : MonoBehaviour
         _answerJson = Application.dataPath + "/Text/AllAnswers.json";
         string allAnswerText = File.ReadAllText(_answerJson);
         characterData = AllResponses.CreateFromJson(allAnswerText);
+
+        _endingJson = Application.dataPath + "/Text/Endings.json";
+        string allEndingText = File.ReadAllText(_endingJson);
+        endingData = AllEndings.CreateFromJson(allEndingText);
         
         UpdateUI();
 
@@ -188,6 +194,6 @@ public class QAManager : MonoBehaviour
                 break;
         }
         
-        print(contestantTurn);
+        //Debug.Log(contestantTurn);
     }
 }
