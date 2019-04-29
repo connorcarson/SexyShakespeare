@@ -12,7 +12,7 @@ public class QuestionData
     {
         var toReturn = JsonUtility.FromJson<QuestionData>(json);
         
-        Debug.Log(toReturn.questionPool.questions[4]);
+        //Debug.Log(toReturn.questionPool.questions[4]);
         return JsonUtility.FromJson<QuestionData>(json);
     }
 }

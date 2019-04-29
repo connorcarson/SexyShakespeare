@@ -13,7 +13,7 @@ public class AllResponses
     {
         var toReturn = JsonUtility.FromJson<AllResponses>(json);
         
-        Debug.Log(toReturn.characters[5].answers[2]);
+        //Debug.Log(toReturn.characters[5].answers[2]);
         return JsonUtility.FromJson<AllResponses>(json);
     }    
 }

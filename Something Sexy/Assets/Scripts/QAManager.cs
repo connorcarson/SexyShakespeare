@@ -7,8 +7,11 @@ using UnityEngine.UI;
 
 public class QAManager : MonoBehaviour
 {
+    public static QAManager instance;
+    
     private string _questionJson;
     private string _answerJson;
+    private string _endingJson;
 
     public string[] questionPool;
     public string[] answerPool;
@@ -17,16 +20,20 @@ public class QAManager : MonoBehaviour
     public Text question2Text;
     public Text question3Text;
     public Text answerText;
-    public Text roundText;
+    //public Text roundText;
 
-    public Button question1Button;
-    public Button question2Button;
-    public Button question3Button;
+    public GameObject question1Button;
+    public GameObject question2Button;
+    public GameObject question3Button;
 
     public GameObject answerDialogue;
     public GameObject nextButton;
+    public GameObject textTail1;
+    public GameObject textTail2;
+    public GameObject textTail3;
 
-    public int roundNum = 1;
+    //public int roundNum = 1;
+    //public int maxRounds = 5;
     public int questionIndex;
     public int answerIndex;
     public int question1Index;
@@ -37,10 +44,21 @@ public class QAManager : MonoBehaviour
 
     public QuestionData questions;
     public AllResponses characterData;
+    public AllEndings endingData;
     
     // Start is called before the first frame update
     void Start()
     {   
+        if (instance == null)
+        {
+            DontDestroyOnLoad(gameObject);
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        
         _questionJson = Application.dataPath + "/Text/AllQuestions.json";
         string allQuestionText = File.ReadAllText(_questionJson);
         questions = QuestionData.CreatFromJson(allQuestionText);
@@ -50,6 +68,10 @@ public class QAManager : MonoBehaviour
         _answerJson = Application.dataPath + "/Text/AllAnswers.json";
         string allAnswerText = File.ReadAllText(_answerJson);
         characterData = AllResponses.CreateFromJson(allAnswerText);
+
+        _endingJson = Application.dataPath + "/Text/Endings.json";
+        string allEndingText = File.ReadAllText(_endingJson);
+        endingData = AllEndings.CreateFromJson(allEndingText);
         
         UpdateUI();
 
@@ -81,7 +103,7 @@ public class QAManager : MonoBehaviour
 
     void UpdateUI()
     {
-        roundText.text = "Round " + roundNum;
+        //roundText.text = "Round " + roundNum;
         question1Index = Random.Range(0, questionPool.Length);        
         question2Index = Random.Range(0, questionPool.Length);
         question3Index = Random.Range(0, questionPool.Length);
@@ -104,12 +126,13 @@ public class QAManager : MonoBehaviour
     
     public void ChooseQuestion(int questionNum)
     {
-        question1Button.interactable = false;
-        question2Button.interactable = false;
-        question3Button.interactable = false;
+        question1Button.GetComponent<Button>().interactable = false;
+        question2Button.GetComponent<Button>().interactable = false;
+        question3Button.GetComponent<Button>().interactable = false;
         
         answerDialogue.SetActive(true);
         nextButton.SetActive(true);
+        textTail1.SetActive(true);
 
         switch (questionNum)
         {
@@ -127,7 +150,7 @@ public class QAManager : MonoBehaviour
         }
 
         answerIndex = questionIndex;
-        charIndex = GameManager.instance.contestant1Index;
+        charIndex = GameManager.instance.pos1.GetComponentInChildren<GameManager.AssignIndex>().fixedCharIndex;
         answerPool = characterData.characters[charIndex].answers;
         answerText.text = answerPool[answerIndex];
     }
@@ -139,24 +162,29 @@ public class QAManager : MonoBehaviour
         switch (contestantTurn)
         {
             case 2:
-                charIndex = GameManager.instance.contestant2Index;
+                charIndex = GameManager.instance.pos2.GetComponentInChildren<GameManager.AssignIndex>().fixedCharIndex;
                 answerPool = characterData.characters[charIndex].answers;
                 answerText.text = answerPool[answerIndex];
+                textTail1.SetActive(false);
+                textTail2.SetActive(true);
                 break;
             case 3:
-                charIndex = GameManager.instance.contestant3Index;
+                charIndex = GameManager.instance.pos3.GetComponentInChildren<GameManager.AssignIndex>().fixedCharIndex;
                 answerPool = characterData.characters[charIndex].answers;
                 answerText.text = answerPool[answerIndex];
+                textTail2.SetActive(false);
+                textTail3.SetActive(true);
                 break;
             case 4:
-                question1Button.interactable = true;
-                question2Button.interactable = true;
-                question3Button.interactable = true;
+                question1Button.GetComponent<Button>().interactable = true;
+                question2Button.GetComponent<Button>().interactable = true;
+                question3Button.GetComponent<Button>().interactable = true;
             
                 nextButton.SetActive(false);
                 answerDialogue.SetActive(false);
+                textTail3.SetActive(false);
 
-                roundNum++;
+                GameManager.instance.Rounds++;
             
                 UpdateUI();
             
@@ -166,6 +194,6 @@ public class QAManager : MonoBehaviour
                 break;
         }
         
-        print(contestantTurn);
+        //Debug.Log(contestantTurn);
     }
 }
