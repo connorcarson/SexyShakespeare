@@ -22,5 +22,5 @@ public class AllResponses
 public class CharacterResponse
 {
     public string name;
-    public string[] answers;
+    public List<string> answers;
 }

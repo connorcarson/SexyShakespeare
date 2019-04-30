@@ -20,6 +20,6 @@ public class QuestionData
 [Serializable]
 public class QuestionPool
 {
-    public string[] questions;
+    public List<string> questions;
 }
 
