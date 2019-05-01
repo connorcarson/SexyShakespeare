@@ -1708,6 +1708,10 @@ PrefabInstance:
       propertyPath: defaultHeight
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 11471564, guid: d03b2078354226b46b26af931ed2a866, type: 3}
+      propertyPath: messageDuration
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 457030, guid: d03b2078354226b46b26af931ed2a866, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7
@@ -1808,6 +1812,18 @@ PrefabInstance:
     - target: {fileID: 11425078, guid: d03b2078354226b46b26af931ed2a866, type: 3}
       propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 11403700, guid: d03b2078354226b46b26af931ed2a866, type: 3}
+      propertyPath: m_ChildScaleWidth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11474714, guid: d03b2078354226b46b26af931ed2a866, type: 3}
+      propertyPath: m_FlexibleWidth
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11474714, guid: d03b2078354226b46b26af931ed2a866, type: 3}
+      propertyPath: m_PreferredWidth
+      value: 240
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d03b2078354226b46b26af931ed2a866, type: 3}
