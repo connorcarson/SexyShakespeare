@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using DG.Tweening;
 using DG.Tweening.Core;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -14,13 +15,14 @@ public class IntroAnimationBoss : MonoBehaviour
     public GameObject button;
     private AudioSource audioSource;
     private AudioClip thudSound;
-    public GameObject title;
+    public TextMeshProUGUI title;
 
     private float seconds;
     
     // Start is called before the first frame update
     void Start()
-    {   
+    {
+        title.color = Color.clear;
         audioSource = GetComponent<AudioSource>();
         thudSound = (AudioClip)Resources.Load("thud sound");
         audioSource.clip = thudSound;
@@ -30,8 +32,8 @@ public class IntroAnimationBoss : MonoBehaviour
         StartCoroutine(DelayedSound(1.3f));
         centerCurtain.transform.DOMove(new Vector3(0f, 3.7f, 0f), .5f).SetDelay(2f);
         StartCoroutine(DelayedSound(2.2f));
-        StartCoroutine(DelayedTitle(2.5f));
-        StartCoroutine(DelayedButton(4f));
+        title.DOColor(Color.black, 1.5f).SetDelay(2.8f);
+        StartCoroutine(DelayedButton(4.3f));
     }
 
     IEnumerator DelayedSound(float seconds)
@@ -39,12 +41,6 @@ public class IntroAnimationBoss : MonoBehaviour
         yield return new WaitForSeconds (seconds);
         audioSource.Play();
              
-    }
-
-    IEnumerator DelayedTitle(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-        title.SetActive(true);
     }
 
     IEnumerator DelayedButton(float seconds)
