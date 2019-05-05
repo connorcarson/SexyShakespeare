@@ -13,6 +13,10 @@ public class GameManager : MonoBehaviour
     private GameObject[] _allContestantPos;
     private GameObject[] _allContestantSelection;
 
+    private GameObject _leftContestant;
+    private GameObject _middleContestant;
+    private GameObject _rightContestant;
+
     public GameObject contestant1Select;
     public GameObject contestant2Select;
     public GameObject contestant3Select;
@@ -21,6 +25,7 @@ public class GameManager : MonoBehaviour
     public GameObject pos3;
     public GameObject roundText;
     public GameObject winnerSelectText;
+    public GameObject resultsButton;
     public GameObject endPanel;
     public GameObject endText;
 
@@ -112,6 +117,11 @@ public class GameManager : MonoBehaviour
         FindPlayersPartner(); //Find the canonical match of the player's selected character
         FindContestants(); //Find two other random contestants
         ShuffleContestants(); //Mix up the order in which they appear
+
+        _leftContestant = instance.pos1.transform.GetChild(0).gameObject;
+        _middleContestant = instance.pos2.transform.GetChild(0).gameObject;
+        _rightContestant = instance.pos3.transform.GetChild(0).gameObject;
+
     }
 
     void Update()
@@ -198,7 +208,11 @@ public class GameManager : MonoBehaviour
 
             contestant1.AddComponent<AssignIndex>().fixedCharIndex = contestant1Index; //assign character index as a public variable to the contestant1 game object
             contestant2.AddComponent<AssignIndex>().fixedCharIndex = contestant2Index; //repeat for contestant 2
-            contestant3.AddComponent<AssignIndex>().fixedCharIndex = contestant3Index; //repeat for contestant 3    
+            contestant3.AddComponent<AssignIndex>().fixedCharIndex = contestant3Index; //repeat for contestant 3
+
+            contestant1.GetComponent<SpriteRenderer>().enabled = false;
+            contestant2.GetComponent<SpriteRenderer>().enabled = false;
+            contestant3.GetComponent<SpriteRenderer>().enabled = false;
         }
     }
 
@@ -232,23 +246,36 @@ public class GameManager : MonoBehaviour
         switch (posIndex)
         {
             case 1:
-                winnerIndex = instance.pos1.transform.GetChild(0).GetComponent<GameManager.AssignIndex>().fixedCharIndex;              
+                winnerIndex = _leftContestant.GetComponent<GameManager.AssignIndex>().fixedCharIndex;
+                _leftContestant.GetComponent<SpriteRenderer>().enabled = true;
                 break;
             case 2:
-                winnerIndex = instance.pos2.transform.GetChild(0).GetComponent<GameManager.AssignIndex>().fixedCharIndex;
+                winnerIndex = _middleContestant.GetComponent<GameManager.AssignIndex>().fixedCharIndex;
+                _middleContestant.GetComponent<SpriteRenderer>().enabled = true;
                 break;
             case 3:
-                winnerIndex = instance.pos3.transform.GetChild(0).GetComponent<GameManager.AssignIndex>().fixedCharIndex;
+                winnerIndex = _rightContestant.GetComponent<GameManager.AssignIndex>().fixedCharIndex;
+                _rightContestant.GetComponent<SpriteRenderer>().enabled = true;
                 break;
             default:
                 break;
         }
         
+        contestant1Select.SetActive(false);
+        contestant2Select.SetActive(false);
+        contestant3Select.SetActive(false);
+        winnerSelectText.GetComponent<Text>().enabled = false;
+        resultsButton.SetActive(true);
+
         //Debug.Log("contestant index: " + winnerIndex);
-        
+
+    } //player selects the winning bachelor/bachelorete 
+
+    public void ShowResults()
+    {
         endPanel.SetActive(true);
         endText.SetActive(true);
         
         endText.GetComponent<Text>().text = QAManager.instance.endingData.player[CharacterSelection.instance.playerIndex].pairing[winnerIndex];
-    } //player selects the winning bachelor/bachelorete 
+    }
 }

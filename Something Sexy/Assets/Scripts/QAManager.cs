@@ -20,11 +20,7 @@ public class QAManager : MonoBehaviour
     public Text question1Text;
     public Text question2Text;
     public Text question3Text;
-        
-    public GameObject question1;
-    public GameObject question2;
-    public GameObject question3;
-    
+       
     public GameObject[] AllQuestionUI;
     
     public Text answerText;
@@ -110,7 +106,7 @@ public class QAManager : MonoBehaviour
 
 
 
-    /*void Shuffle()
+    void Shuffle()
     {
         question1Index = Random.Range(0, questionPool.Count);
         question2Index = Random.Range(0, questionPool.Count);
@@ -124,17 +120,13 @@ public class QAManager : MonoBehaviour
         {
             return;
         }
-    }*/
+    }
     
     void UpdateUI()
     {
-        /*string currentQuestion1 = questionPool[question1Index];
+        string currentQuestion1 = questionPool[question1Index];
         string currentQuestion2 = questionPool[question2Index]; 
         string currentQuestion3 = questionPool[question3Index];
-        
-        question1.GetComponent<PanelMessageBox>().messageList[0] = currentQuestion1;
-        question2.GetComponent<PanelMessageBox>().messageList[0] = currentQuestion2;
-        question3.GetComponent<PanelMessageBox>().messageList[0] = currentQuestion3;
         
         question1Text.text = currentQuestion1;
         question2Text.text = currentQuestion2;
@@ -142,43 +134,35 @@ public class QAManager : MonoBehaviour
 
         questionPool.RemoveAt(question1Index);
         questionPool.RemoveAt(question2Index);
-        questionPool.RemoveAt(question3Index);*/
+        questionPool.RemoveAt(question3Index);
 
-        question1Index = Random.Range(0, questionPool.Count);        
-        question2Index = Random.Range(0, questionPool.Count);
-        question3Index = Random.Range(0, questionPool.Count);
+        //question1Index = Random.Range(0, questionPool.Count);        
+        //question2Index = Random.Range(0, questionPool.Count);
+        //question3Index = Random.Range(0, questionPool.Count);
         
-        if (question1Index == question2Index || question1Index == question3Index || question2Index == question3Index)
-        {
-            UpdateUI();
-        }
-        else
-        {
-            string currentQuestion1 = questionPool[question1Index];
-            string currentQuestion2 = questionPool[question2Index];
-            string currentQuestion3 = questionPool[question3Index];
+        //if (question1Index == question2Index || question1Index == question3Index || question2Index == question3Index)
+        //{
+        //    UpdateUI();
+        //}
+        //else
+        //{
+        //    string currentQuestion1 = questionPool[question1Index];
+        //    string currentQuestion2 = questionPool[question2Index];
+        //    string currentQuestion3 = questionPool[question3Index];
         
-            question1.GetComponent<PanelMessageBox>().messageList[0] = currentQuestion1;
-            question2.GetComponent<PanelMessageBox>().messageList[0] = currentQuestion2;
-            question3.GetComponent<PanelMessageBox>().messageList[0] = currentQuestion3;
-
-            question1Text.text = currentQuestion1;
-            question2Text.text = currentQuestion2;
-            question3Text.text = currentQuestion3;
-        }
+        //    question1Text.text = currentQuestion1;
+        //    question2Text.text = currentQuestion2;
+        //    question3Text.text = currentQuestion3;
+        //}
     }
     
     public void ChooseQuestion(int questionNum)
     {
-        //question1Button.GetComponent<Button>().interactable = false;
-        //question2Button.GetComponent<Button>().interactable = false;
-        //question3Button.GetComponent<Button>().interactable = false;
+        question1Button.GetComponent<Button>().interactable = false;
+        question2Button.GetComponent<Button>().interactable = false;
+        question3Button.GetComponent<Button>().interactable = false;
         
-        /*answerDialogue.SetActive(true);
-        nextButton.SetActive(true);
-        textTail1.SetActive(true);
-
-        charIndex = GameManager.instance.pos1.GetComponentInChildren<GameManager.AssignIndex>().fixedCharIndex;
+        /*charIndex = GameManager.instance.pos1.GetComponentInChildren<GameManager.AssignIndex>().fixedCharIndex;
         answerPool = characterData.characters[charIndex].answers;
         
         switch (questionNum)
@@ -259,9 +243,9 @@ public class QAManager : MonoBehaviour
                 textTail3.SetActive(true);
                 break;
             case 4:
-                //question1Button.GetComponent<Button>().interactable = true;
-                //question2Button.GetComponent<Button>().interactable = true;
-                //question3Button.GetComponent<Button>().interactable = true;
+                question1Button.GetComponent<Button>().interactable = true;
+                question2Button.GetComponent<Button>().interactable = true;
+                question3Button.GetComponent<Button>().interactable = true;
                 
                 nextButton.SetActive(false);
                 answerDialogue.SetActive(false);
