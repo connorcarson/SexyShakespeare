@@ -35,13 +35,15 @@ public class YorickController : MonoBehaviour
 
     public void CallNewLine()
     {
+        Debug.Log("Index Location = " + indexLocation);
         //InterfaceText.DOColor(Color.clear, 1f);
-        InterfaceText.text = messageText[indexLocation];
        // InterfaceText.DOColor(Color.black, 1f).SetDelay(1f);
         
-        if (indexLocation <= messageText.Length)
+        if (indexLocation < messageText.Length)
         {
+            InterfaceText.text = messageText[indexLocation];
             indexLocation++;
+
         }
 
         else
