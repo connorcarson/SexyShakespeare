@@ -168,7 +168,7 @@ public class GameManager : MonoBehaviour
         }
     }
     
-    void FindContestants() //find contestant 2 and 3's index numbers
+    void FindContestants() //finds contestant 2 and 3's index numbers
     {        
         contestant2Index = Random.Range(0, allCharacters.Length); //contestant 2's index number is a random number between 0 and 9 A.K.A. our characters index numbers in the char array
         contestant3Index = Random.Range(0, allCharacters.Length); //repeat for contestant 3
@@ -183,7 +183,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void ShuffleContestants() //instantiate the contestants and shuffle them
+    void ShuffleContestants() //instantiates the contestants and shuffle them
     {
         pos1Index = Random.Range(0, _allContestantPos.Length); //position 1's index number is a random number between 0 and 2 A.K.A. the length of our positions array
         pos2Index = Random.Range(0, _allContestantPos.Length); //repeat for position 2
@@ -241,31 +241,31 @@ public class GameManager : MonoBehaviour
         }   
     } //update the round number 
     
-    public void WinnerSelect(int posIndex)
+    public void WinnerSelect(int posIndex) //player selects the winning contestant
     {
         switch (posIndex)
         {
-            case 1:
-                winnerIndex = _leftContestant.GetComponent<GameManager.AssignIndex>().fixedCharIndex;
-                _leftContestant.GetComponent<SpriteRenderer>().enabled = true;
+            case 1: //if the player selected the contestant parented to position 1
+                winnerIndex = _leftContestant.GetComponent<GameManager.AssignIndex>().fixedCharIndex; //set winner index equal to the character index of the character in position 1
+                _leftContestant.GetComponent<SpriteRenderer>().enabled = true; //activate the sprite of the contestant in position 1
                 break;
             case 2:
-                winnerIndex = _middleContestant.GetComponent<GameManager.AssignIndex>().fixedCharIndex;
-                _middleContestant.GetComponent<SpriteRenderer>().enabled = true;
+                winnerIndex = _middleContestant.GetComponent<GameManager.AssignIndex>().fixedCharIndex; //set winner index equal to the character index of the character in position 2
+                _middleContestant.GetComponent<SpriteRenderer>().enabled = true; //activate the sprite of the contestant in position 2
                 break;
             case 3:
-                winnerIndex = _rightContestant.GetComponent<GameManager.AssignIndex>().fixedCharIndex;
-                _rightContestant.GetComponent<SpriteRenderer>().enabled = true;
+                winnerIndex = _rightContestant.GetComponent<GameManager.AssignIndex>().fixedCharIndex; //set winner index equal to the character index of the character in position 3
+                _rightContestant.GetComponent<SpriteRenderer>().enabled = true; //activate the sprite of the contestant in position 3
                 break;
             default:
                 break;
         }
         
-        contestant1Select.SetActive(false);
-        contestant2Select.SetActive(false);
-        contestant3Select.SetActive(false);
-        winnerSelectText.GetComponent<Text>().enabled = false;
-        resultsButton.SetActive(true);
+        contestant1Select.SetActive(false); //set contestant 2 selection button to be inactive
+        contestant2Select.SetActive(false); //repeat
+        contestant3Select.SetActive(false); //repeat
+        winnerSelectText.GetComponent<Text>().enabled = false; //set winner select text to be inactive
+        resultsButton.SetActive(true); //set results button to be active
 
         //Debug.Log("contestant index: " + winnerIndex);
 
@@ -273,9 +273,10 @@ public class GameManager : MonoBehaviour
 
     public void ShowResults()
     {
-        endPanel.SetActive(true);
-        endText.SetActive(true);
+        endPanel.SetActive(true); //set ending UI to be active
+        endText.SetActive(true); //etc.
         
         endText.GetComponent<Text>().text = QAManager.instance.endingData.player[CharacterSelection.instance.playerIndex].pairing[winnerIndex];
+        //set ending text according to the index of the player character and the index of the selected winning contestant
     }
 }

@@ -4,16 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class AllEndings
+public class EndingData
 {
     public Pairings[] player;
    
-    public static AllEndings CreateFromJson(string json)
+    public static EndingData CreateFromJson(string json)
     {
-        var toReturn = JsonUtility.FromJson<AllEndings>(json);
+        var toReturn = JsonUtility.FromJson<EndingData>(json);
         
         //Debug.Log(toReturn.player[5].pairing[2]);
-        return JsonUtility.FromJson<AllEndings>(json);
+        return JsonUtility.FromJson<EndingData>(json);
     }    
 }
 

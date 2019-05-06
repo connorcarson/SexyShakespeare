@@ -5,16 +5,16 @@ using UnityEngine;
 using Object = System.Object;
 
 [Serializable]
-public class AllResponses
+public class CharacterData
 {
     public CharacterResponse[] characters;
    
-    public static AllResponses CreateFromJson(string json)
+    public static CharacterData CreateFromJson(string json)
     {
-        var toReturn = JsonUtility.FromJson<AllResponses>(json);
+        var toReturn = JsonUtility.FromJson<CharacterData>(json);
         
         //Debug.Log(toReturn.characters[5].answers[2]);
-        return JsonUtility.FromJson<AllResponses>(json);
+        return JsonUtility.FromJson<CharacterData>(json);
     }    
 }
 
