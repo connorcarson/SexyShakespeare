@@ -32,6 +32,6 @@ public class CharacterSelection : MonoBehaviour
     public void CharacterSelect(int selectionIndex)
     {
         playerIndex = selectionIndex;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 }

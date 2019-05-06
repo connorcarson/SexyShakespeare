@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography.X509Certificates;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Image = UnityEngine.UIElements.Image;
 
 public class QAManager : MonoBehaviour
 {
@@ -26,6 +28,7 @@ public class QAManager : MonoBehaviour
     
     public Text answerText;
 
+    public Image Yorick;
     public GameObject question1Button;
     public GameObject question2Button;
     public GameObject question3Button;

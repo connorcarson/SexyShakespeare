@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using DG.Tweening;
+using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -26,8 +28,10 @@ public class GameManager : MonoBehaviour
     public GameObject roundText;
     public GameObject winnerSelectText;
     public GameObject resultsButton;
+    
     public GameObject endPanel;
-    public GameObject endText;
+    public TextMeshProUGUI endText;
+    public GameObject endButton;
 
     public int pos1Index;
     public int pos2Index;
@@ -274,7 +278,8 @@ public class GameManager : MonoBehaviour
     public void ShowResults()
     {
         endPanel.SetActive(true); //set ending UI to be active
-        endText.SetActive(true); //etc.
+        endText.DOColor(Color.black, 1f); //etc.
+        endButton.SetActive(true);
         
         endText.GetComponent<Text>().text = QAManager.instance.endingData.player[CharacterSelection.instance.playerIndex].pairing[winnerIndex];
         //set ending text according to the index of the player character and the index of the selected winning contestant
