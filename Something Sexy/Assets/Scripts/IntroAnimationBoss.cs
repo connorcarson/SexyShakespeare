@@ -30,7 +30,7 @@ public class IntroAnimationBoss : MonoBehaviour
         StartCoroutine(DelayedSound(.3f));
         rightCurtain.transform.DOMove(new Vector3(7.62f, -1.25f, 0f), .5f).SetDelay(1f);
         StartCoroutine(DelayedSound(1.3f));
-        centerCurtain.transform.DOMove(new Vector3(0f, 3.7f, 0f), .5f).SetDelay(2f);
+        centerCurtain.transform.DOMove(new Vector3(0f, 4.25f, 0f), .5f).SetDelay(2f);
         StartCoroutine(DelayedSound(2.2f));
         title.DOColor(Color.black, 1.5f).SetDelay(2.8f);
         StartCoroutine(DelayedButton(4.3f));
@@ -51,6 +51,6 @@ public class IntroAnimationBoss : MonoBehaviour
 
     public void LoadNewScene()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 }
