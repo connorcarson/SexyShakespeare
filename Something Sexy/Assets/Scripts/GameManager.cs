@@ -30,8 +30,10 @@ public class GameManager : MonoBehaviour
     public GameObject resultsButton;
     
     public GameObject endPanel;
-    public TextMeshProUGUI endText;
+    public GameObject endTextObject;
     public GameObject endButton;
+
+    private TextMeshProUGUI _endText;
 
     public int pos1Index;
     public int pos2Index;
@@ -40,6 +42,7 @@ public class GameManager : MonoBehaviour
     public int contestant2Index;
     public int contestant3Index;
     public int winnerIndex;
+    private int _endingNum = 1;
 
     private Vector3 _newPos;
     private Vector3 _newPos2;
@@ -70,7 +73,7 @@ public class GameManager : MonoBehaviour
     {
         if (instance == null)
         {
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
             instance = this;
         }
         else
@@ -124,8 +127,7 @@ public class GameManager : MonoBehaviour
 
         _leftContestant = instance.pos1.transform.GetChild(0).gameObject;
         _middleContestant = instance.pos2.transform.GetChild(0).gameObject;
-        _rightContestant = instance.pos3.transform.GetChild(0).gameObject;
-
+        _rightContestant = instance.pos3.transform.GetChild(0).gameObject;    
     }
 
     void Update()
@@ -220,12 +222,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public class AssignIndex : MonoBehaviour 
+    public class AssignIndex : MonoBehaviour //this a class just for assigning the char index as a public variable to our contestant game objects
     {
         public int fixedCharIndex;
-    } //this a class just for assigning the char index as a public variable to our contestant game objects
+    }
 
-    void UpdateRounds() 
+    void UpdateRounds() //update the round number
     {
         roundText.GetComponent<Text>().text = "Round: " + Rounds; //set round text
         
@@ -243,7 +245,7 @@ public class GameManager : MonoBehaviour
                 selectionButton.GetComponent<Button>().interactable = true; //set them to be interactable
             }
         }   
-    } //update the round number 
+    } 
     
     public void WinnerSelect(int posIndex) //player selects the winning contestant
     {
@@ -273,15 +275,46 @@ public class GameManager : MonoBehaviour
 
         //Debug.Log("contestant index: " + winnerIndex);
 
-    } //player selects the winning bachelor/bachelorete 
+    }
 
-    public void ShowResults()
+    public void ShowResults() //activates all ending UI and first part of ending text
     {
-        endPanel.SetActive(true); //set ending UI to be active
-        endText.DOColor(Color.black, 1f); //etc.
-        endButton.SetActive(true);
+        _endText = endTextObject.GetComponent<TextMeshProUGUI>(); //getting reference to TextMeshProUGUI component
         
-        endText.GetComponent<Text>().text = QAManager.instance.endingData.player[CharacterSelection.instance.playerIndex].pairing[winnerIndex];
-        //set ending text according to the index of the player character and the index of the selected winning contestant
+        endTextObject.SetActive(true); //set ending UI game object to be active
+        endPanel.SetActive(true); //etc.
+        endButton.SetActive(true); //etc,
+        _endText.DOColor(Color.black, 1f); //etc.
+        
+        _endText.text = QAManager.instance.endingData.player[CharacterSelection.instance.playerIndex].pairing[winnerIndex].part1;
+        //set ending text according to the index of the player character, the index of the selected winning contestant and the first part of the text
+        
+        //Debug.Log(QAManager.instance.endingData.player[CharacterSelection.instance.playerIndex].pairing[winnerIndex].part1);
+        //Debug.Log(QAManager.instance.endingData.player[CharacterSelection.instance.playerIndex].pairing[winnerIndex].part2);
+        //Debug.Log(QAManager.instance.endingData.player[CharacterSelection.instance.playerIndex].pairing[winnerIndex].part3);
+    }
+
+    public void CallNextPart() //calls the second and third parts of ending when the player clicks the arrow button
+    {
+        _endingNum++; //increase ending number
+
+        switch (_endingNum)
+        {
+            case 2: //if ending number is 2, show part 2 of the ending
+                _endText.text = QAManager.instance.endingData.player[CharacterSelection.instance.playerIndex].pairing[winnerIndex].part2;
+                break;
+            case 3: //if ending number is 3, show part 3 of the ending
+                _endText.text = QAManager.instance.endingData.player[CharacterSelection.instance.playerIndex].pairing[winnerIndex].part3;
+                endTextObject.transform.GetChild(0).gameObject.SetActive(false);
+                break;
+            //one day we will use this to start the game over/go to the main menu? But right now, because we're not destroying certain scripts on Load,
+            //doing this breaks our game
+            //case 4:
+            //    SceneManager.LoadScene(2);
+            //    break;
+            default: //else
+                _endingNum = 1; //reset ending number to 1
+                break;
+        }
     }
 }

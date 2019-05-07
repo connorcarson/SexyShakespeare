@@ -6,7 +6,7 @@ using UnityEngine;
 [Serializable]
 public class EndingData
 {
-    public Pairings[] player;
+    public CharacterSet[] player;
    
     public static EndingData CreateFromJson(string json)
     {
@@ -18,8 +18,16 @@ public class EndingData
 }
 
 [Serializable]
-public class Pairings
+public class CharacterSet
 {
     public string name;
-    public string[] pairing;
+    public CoupleData[] pairing;
+}
+
+[Serializable]
+public class CoupleData
+{
+    public string part1;
+    public string part2;
+    public string part3;
 }
