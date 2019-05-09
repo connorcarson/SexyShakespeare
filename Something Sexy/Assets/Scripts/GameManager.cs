@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     public GameObject endPanel;
     public GameObject endTextObject;
     public GameObject endButton;
+    public GameObject restartButton;
 
     private TextMeshProUGUI _endText;
 
@@ -306,15 +307,20 @@ public class GameManager : MonoBehaviour
             case 3: //if ending number is 3, show part 3 of the ending
                 _endText.text = QAManager.instance.endingData.player[CharacterSelection.instance.playerIndex].pairing[winnerIndex].part3;
                 endTextObject.transform.GetChild(0).gameObject.SetActive(false);
+                restartButton.SetActive(true);
                 break;
-            //one day we will use this to start the game over/go to the main menu? But right now, because we're not destroying certain scripts on Load,
-            //doing this breaks our game
-            //case 4:
-            //    SceneManager.LoadScene(2);
-            //    break;
             default: //else
                 _endingNum = 1; //reset ending number to 1
                 break;
         }
+    }
+
+    public void Restart()
+    {
+        Destroy(GameManager.instance);
+        Destroy(QAManager.instance);
+        Destroy(CharacterSelection.instance);
+        
+        SceneManager.LoadScene(2);
     }
 }
