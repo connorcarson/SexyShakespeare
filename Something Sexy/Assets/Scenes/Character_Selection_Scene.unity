@@ -596,6 +596,7 @@ GameObject:
   - component: {fileID: 216944016}
   - component: {fileID: 216944015}
   - component: {fileID: 216944014}
+  - component: {fileID: 216944017}
   m_Layer: 5
   m_Name: JulietTooltip
   m_TagString: Untagged
@@ -674,6 +675,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 216944012}
   m_CullTransparentMesh: 0
+--- !u!225 &216944017
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216944012}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &241931067
 GameObject:
   m_ObjectHideFlags: 0
@@ -1553,6 +1566,7 @@ GameObject:
   - component: {fileID: 533274070}
   - component: {fileID: 533274069}
   - component: {fileID: 533274068}
+  - component: {fileID: 533274071}
   m_Layer: 5
   m_Name: PetruchioTooltip
   m_TagString: Untagged
@@ -1631,6 +1645,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 533274066}
   m_CullTransparentMesh: 0
+--- !u!225 &533274071
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533274066}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1001 &574097479
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4052,6 +4078,7 @@ GameObject:
   - component: {fileID: 1313580942}
   - component: {fileID: 1313580943}
   - component: {fileID: 1313580941}
+  - component: {fileID: 1313580944}
   m_Layer: 5
   m_Name: RomeoTooltip
   m_TagString: Untagged
@@ -4130,6 +4157,18 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!225 &1313580944
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313580939}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1337417569
 GameObject:
   m_ObjectHideFlags: 0
@@ -4384,6 +4423,7 @@ GameObject:
   - component: {fileID: 1516490214}
   - component: {fileID: 1516490213}
   - component: {fileID: 1516490212}
+  - component: {fileID: 1516490215}
   m_Layer: 5
   m_Name: OpheliaTooltip
   m_TagString: Untagged
@@ -4462,6 +4502,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1516490210}
   m_CullTransparentMesh: 0
+--- !u!225 &1516490215
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516490210}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1517496176
 GameObject:
   m_ObjectHideFlags: 0
@@ -6034,6 +6086,7 @@ GameObject:
   - component: {fileID: 2132113521}
   - component: {fileID: 2132113520}
   - component: {fileID: 2132113519}
+  - component: {fileID: 2132113522}
   m_Layer: 5
   m_Name: KateTooltip
   m_TagString: Untagged
@@ -6112,3 +6165,15 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132113517}
   m_CullTransparentMesh: 0
+--- !u!225 &2132113522
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132113517}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0

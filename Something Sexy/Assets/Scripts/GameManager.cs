@@ -6,6 +6,7 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Image = UnityEngine.UIElements.Image;
 
 public class GameManager : MonoBehaviour
 {
@@ -47,6 +48,14 @@ public class GameManager : MonoBehaviour
     private Vector3 _newPos;
     private Vector3 _newPos2;
     private Vector3 _newPos3;
+
+    public Image Yorick;
+    public Image YorickTextBox;
+    public GameObject YorickCommentary;
+/*
+    public Sprite [] CharacterPortraits;
+    public GameObject PortraitHolder;    
+*/
 
     #region round property
     
@@ -93,6 +102,18 @@ public class GameManager : MonoBehaviour
         GameObject ophelia = Resources.Load<GameObject>("Prefabs/Characters/Ophelia");
         GameObject petruchio = Resources.Load<GameObject>("Prefabs/Characters/Petruchio");
         GameObject romeo = Resources.Load<GameObject>("Prefabs/Characters/Romeo");
+/*
+        Sprite antonyPortrait = Resources.Load<Sprite>("Prefabs/Icons/antony icon");
+        Sprite beatricePortrait = Resources.Load<Sprite>("Prefabs/Icons/beatrice icon");
+        Sprite benedickPortrait = Resources.Load<Sprite>("Prefabs/Icons/benedick icon");
+        Sprite cleopatraPortrait = Resources.Load<Sprite>("Prefabs/Icons/cleo icon");
+        Sprite hamletPortrait = Resources.Load<Sprite>("Prefabs/Icons/hamlet icon");
+        Sprite julietPortrait = Resources.Load<Sprite>("Prefabs/Icons/juliet icon");
+        Sprite katePortrait = Resources.Load<Sprite>("Prefabs/Icons/kate icon");
+        Sprite opheliaPortrait = Resources.Load<Sprite>("Prefabs/Icons/ophelia icon");
+        Sprite petruchioPortrait = Resources.Load<Sprite>("Prefabs/Icons/petruchio icon");
+        Sprite romeoPortrait = Resources.Load<Sprite>("Prefabs/Icons/romeo icon");
+*/
 
         #endregion
 
@@ -100,6 +121,8 @@ public class GameManager : MonoBehaviour
         
         //plug all our character game objects into an array
         allCharacters = new[] {antony, beatrice, benedick, cleopatra, hamlet, juliet, kate, ophelia, petruchio, romeo};
+
+        //CharacterPortraits = new[] {antonyPortrait, beatricePortrait, cleopatraPortrait, hamletPortrait, julietPortrait, katePortrait, opheliaPortrait, petruchioPortrait, romeoPortrait};
 
         //plug all of our empty game objects into an array
         _allContestantPos = new[] {pos1, pos2, pos3};
@@ -127,7 +150,11 @@ public class GameManager : MonoBehaviour
 
         _leftContestant = instance.pos1.transform.GetChild(0).gameObject;
         _middleContestant = instance.pos2.transform.GetChild(0).gameObject;
-        _rightContestant = instance.pos3.transform.GetChild(0).gameObject;    
+        _rightContestant = instance.pos3.transform.GetChild(0).gameObject;
+
+        //PortraitHolder.GetComponent<SpriteRenderer>().sprite = CharacterPortraits[CharacterSelection.instance.playerIndex];
+       
+
     }
 
     void Update()

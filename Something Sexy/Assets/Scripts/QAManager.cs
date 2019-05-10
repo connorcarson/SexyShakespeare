@@ -143,6 +143,7 @@ public class QAManager : MonoBehaviour
     
     public void ChooseQuestion(int questionNum) //player selects the question they wish to ask
     {
+        Debug.Log("Hello I am working");
         question1Button.GetComponent<Button>().interactable = false; //make question 1 button nonactive
         question2Button.GetComponent<Button>().interactable = false; //repeat for question 2 button
         question3Button.GetComponent<Button>().interactable = false; //repeat for question 3 button
