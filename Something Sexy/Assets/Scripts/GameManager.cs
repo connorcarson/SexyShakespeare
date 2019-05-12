@@ -103,18 +103,18 @@ public class GameManager : MonoBehaviour
         GameObject ophelia = Resources.Load<GameObject>("Prefabs/Characters/Ophelia");
         GameObject petruchio = Resources.Load<GameObject>("Prefabs/Characters/Petruchio");
         GameObject romeo = Resources.Load<GameObject>("Prefabs/Characters/Romeo");
-/*
-        Sprite antonyPortrait = Resources.Load<Sprite>("Prefabs/Icons/antony icon");
-        Sprite beatricePortrait = Resources.Load<Sprite>("Prefabs/Icons/beatrice icon");
-        Sprite benedickPortrait = Resources.Load<Sprite>("Prefabs/Icons/benedick icon");
-        Sprite cleopatraPortrait = Resources.Load<Sprite>("Prefabs/Icons/cleo icon");
-        Sprite hamletPortrait = Resources.Load<Sprite>("Prefabs/Icons/hamlet icon");
-        Sprite julietPortrait = Resources.Load<Sprite>("Prefabs/Icons/juliet icon");
-        Sprite katePortrait = Resources.Load<Sprite>("Prefabs/Icons/kate icon");
-        Sprite opheliaPortrait = Resources.Load<Sprite>("Prefabs/Icons/ophelia icon");
-        Sprite petruchioPortrait = Resources.Load<Sprite>("Prefabs/Icons/petruchio icon");
-        Sprite romeoPortrait = Resources.Load<Sprite>("Prefabs/Icons/romeo icon");
-*/
+
+        Sprite antonyPortrait = Resources.Load<Sprite>("Prefabs/Borderless Icons/antony icon");
+        Sprite beatricePortrait = Resources.Load<Sprite>("Prefabs/Borderless Icons/beatrice icon");
+        Sprite benedickPortrait = Resources.Load<Sprite>("Prefabs/Borderless Icons/benedick icon");
+        Sprite cleopatraPortrait = Resources.Load<Sprite>("Prefabs/Borderless Icons/cleo icon");
+        Sprite hamletPortrait = Resources.Load<Sprite>("Prefabs/Borderless Icons/hamlet icon");
+        Sprite julietPortrait = Resources.Load<Sprite>("Prefabs/Borderless Icons/juliet icon");
+        Sprite katePortrait = Resources.Load<Sprite>("Prefabs/Borderless Icons/kate icon");
+        Sprite opheliaPortrait = Resources.Load<Sprite>("Prefabs/Borderless Icons/ophelia icon");
+        Sprite petruchioPortrait = Resources.Load<Sprite>("Prefabs/Borderless Icons/petruchio icon");
+        Sprite romeoPortrait = Resources.Load<Sprite>("Prefabs/Borderless Icons/romeo icon");
+
 
         #endregion
 
