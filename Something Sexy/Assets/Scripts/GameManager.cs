@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     public GameObject pos3;
     public GameObject roundText;
     public GameObject winnerSelectText;
+    public GameObject curtains;
     public GameObject resultsButton;
     
     public GameObject endPanel;
@@ -298,6 +299,7 @@ public class GameManager : MonoBehaviour
         contestant1Select.SetActive(false); //set contestant 2 selection button to be inactive
         contestant2Select.SetActive(false); //repeat
         contestant3Select.SetActive(false); //repeat
+        curtains.SetActive(false);
         winnerSelectText.GetComponent<Text>().enabled = false; //set winner select text to be inactive
         resultsButton.SetActive(true); //set results button to be active
 
