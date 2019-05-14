@@ -136,13 +136,13 @@ public class GameManager : MonoBehaviour
 
         #region position contestant selection UI
         
-        _newPos = Camera.main.WorldToScreenPoint(pos1.transform.position); //convert world position of char game objects to screen position
-        _newPos2 = Camera.main.WorldToScreenPoint(pos2.transform.position); //repeat
-        _newPos3 = Camera.main.WorldToScreenPoint(pos3.transform.position); //repeat
+        _newPos = Camera.main.ScreenToWorldPoint(contestant1Select.transform.position); //convert screen position of char selection UI to world position
+        _newPos2 = Camera.main.ScreenToWorldPoint(contestant2Select.transform.position); //repeat
+        _newPos3 = Camera.main.ScreenToWorldPoint(contestant3Select.transform.position); //repeat
         
-        contestant1Select.transform.position = _newPos; //move character selection button to new screen position 
-        contestant2Select.transform.position = _newPos2; //repeat
-        contestant3Select.transform.position = _newPos3; //repeat
+        pos1.transform.position = new Vector3(_newPos.x, _newPos.y, pos1.transform.position.z); //move character game object to new position 
+        pos2.transform.position = new Vector3(_newPos2.x, _newPos2.y, pos2.transform.position.z); //repeat
+        pos3.transform.position = new Vector3(_newPos3.x, _newPos3.y, pos3.transform.position.z); //repeat
         
         #endregion
         
@@ -263,7 +263,6 @@ public class GameManager : MonoBehaviour
         if (roundNum == maxRounds) //if played rounds is equal to maximum number of rounds allowed
         {
             roundText.SetActive(false); //deactivate the round text
-            winnerSelectText.SetActive(true); //activate the winner selection text
             
             QAManager.instance.question1Button.SetActive(false); //deactivate the question button
             QAManager.instance.question2Button.SetActive(false); //repeat
@@ -273,7 +272,11 @@ public class GameManager : MonoBehaviour
             {
                 selectionButton.GetComponent<Button>().interactable = true; //set them to be interactable
             }
-        }   
+            
+            QAManager.instance.EndYorick();
+
+            roundNum = 0; //reset round number
+        }
     } 
     
     public void WinnerSelect(int posIndex) //player selects the winning contestant

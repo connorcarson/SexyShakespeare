@@ -50,7 +50,10 @@ public class QAManager : MonoBehaviour
     public EndingData endingData;
 
     //info for Yorick and transitional text
-    public Image Yorick;
+    public GameObject Yorick;
+    public GameObject YorickDialogueBox;
+    public GameObject YorickPanel;
+    //public Image Yorick;
     public Text transitionalWriting;
     public Image textBox;
     public Image textBoxTail;
@@ -244,12 +247,15 @@ public class QAManager : MonoBehaviour
                 textTail2.SetActive(false); //deactivate middle tail of speech bubble
                 textTail3.SetActive(true); //activate right tail of speech bubble
                 
-                YorickCommentPicker(postResponseRemark);
-                
                 break;
             case 4: //if turn count is more than 3 (all contestants have answered)            
                 GameManager.instance.Rounds++; //increase round number
-                
+
+                if (GameManager.instance.roundNum < 6)
+                {
+                    YorickCommentPicker(postResponseRemark);
+                }
+
                 nextButton.SetActive(false); //deactivate answer UI 
                 answerDialogue.SetActive(false); //etc.
                 textTail3.SetActive(false); //etc.
@@ -270,6 +276,10 @@ public class QAManager : MonoBehaviour
 
     public void YorickCommentPicker(List<string> CurrentResponsePool)
     {
+        Yorick.SetActive(true);
+        YorickDialogueBox.SetActive(true);
+        YorickPanel.SetActive(true);
+        
         // set the index number to a random number between 0 and the length of the array we will select
         YorickResponseIndex = Random.Range(0, CurrentResponsePool.Count);
 
@@ -282,12 +292,29 @@ public class QAManager : MonoBehaviour
         transitionalWriting.DOColor(Color.black, .5f);
     }
 
-    public void FadeOut()
+
+    public void EndYorick()
+    {
+        Yorick.SetActive(true);
+        YorickDialogueBox.SetActive(true);
+        YorickPanel.SetActive(true);
+
+        transitionalWriting.text = "Come, come! Tis time to select the object of thy heart's desire! Who shall ye choose?";
+    }
+    
+    public void DeactivateYorick()
+    {
+        Yorick.SetActive(false);
+        YorickDialogueBox.SetActive(false);
+        YorickPanel.SetActive(false);
+    }
+    
+    /*public void FadeOut()
     {
         textBox.DOColor(Color.clear, .5f);
         textBoxTail.DOColor(Color.clear, .5f);
         transitionalWriting.DOColor(Color.clear, .5f);
-    }
+    }*/
     
 }
     
