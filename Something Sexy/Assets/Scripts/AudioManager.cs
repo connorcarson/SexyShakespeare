@@ -10,6 +10,7 @@ public class AudioManager : MonoBehaviour
     private AudioSource audioSource;
     private AudioSource themeAudioSource;
     public AudioClip[] gameSounds;
+    public AudioClip[] audienceReactions;
     
     // Start is called before the first frame update
     void Awake()
@@ -25,10 +26,10 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
         }
         
-        audioSource = GetComponent<AudioSource>();
-        themeAudioSource = GetComponentInChildren<AudioSource>();
-        
-    PlayThemeMusic(gameSounds[0]);
+        audioSource = GetComponent<AudioSource>(); //get the audio source to be used for everything other than the theme music
+        themeAudioSource = GetComponentInChildren<AudioSource>(); //get the audio source from the child GameObject, which will be used for the theme music
+
+        PlayThemeMusic(gameSounds[0]);
     }
 
     // Update is called once per frame
@@ -42,7 +43,7 @@ public class AudioManager : MonoBehaviour
         audioSource.clip = clip;
             
         //Play the clip.
-        audioSource.Play ();
+        audioSource.PlayOneShot(audioSource.clip);
     }
 
     public void PlayThemeMusic(AudioClip themeClip)

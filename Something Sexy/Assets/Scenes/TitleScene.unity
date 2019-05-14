@@ -1803,6 +1803,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameSounds:
   - {fileID: 8300000, guid: 11bfdf88192a6c841832f4b14866e92f, type: 3}
+  - {fileID: 8300000, guid: 494c532e1257b4640a8faff5e375f654, type: 3}
+  audienceReactions:
+  - {fileID: 8300000, guid: a5190102ba4439649b244c4fda2e9c05, type: 3}
+  - {fileID: 8300000, guid: 477f2463b03e9d94c9681b562187bb46, type: 3}
+  - {fileID: 8300000, guid: 19dd5e441881f6f4cb0a1e5fbcbb0101, type: 3}
 --- !u!4 &1914935730
 Transform:
   m_ObjectHideFlags: 0

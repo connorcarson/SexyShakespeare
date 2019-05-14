@@ -111,9 +111,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: GreatVibesIntroScene
+  m_Name: GreatVibes
   m_EditorClassIdentifier: 
-  hashCode: 1185586622
+  hashCode: -877770290
   material: {fileID: -667129631550027991}
   materialHashCode: -1878072263
   m_Version: 1.1.0

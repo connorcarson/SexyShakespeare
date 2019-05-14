@@ -103,6 +103,7 @@ public class QAManager : MonoBehaviour
     {
         Shuffle(); //shuffle the questions
         UpdateUI(); //display selected questions
+        AudioManager.instance.PlaySound(AudioManager.instance.gameSounds[1]);
         
         //WriteNewJson(fileLocation); //use to creat new Json file, if file does not already exist.
     }

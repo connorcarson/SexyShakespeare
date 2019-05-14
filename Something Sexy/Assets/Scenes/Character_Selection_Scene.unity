@@ -3828,8 +3828,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Select a Suitor
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4cc37b474c4babf48bd5ba6f3caa2f15, type: 2}
-  m_sharedMaterial: {fileID: -667129631550027991, guid: 4cc37b474c4babf48bd5ba6f3caa2f15,
+  m_fontAsset: {fileID: 11400000, guid: a7d841652a93ebc4dbf98b042d5bd726, type: 2}
+  m_sharedMaterial: {fileID: -667129631550027991, guid: a7d841652a93ebc4dbf98b042d5bd726,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3952,7 +3952,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -667129631550027991, guid: 4cc37b474c4babf48bd5ba6f3caa2f15, type: 2}
+  - {fileID: -667129631550027991, guid: a7d841652a93ebc4dbf98b042d5bd726, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3988,7 +3988,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.09, y: 2.25}
+  m_AnchoredPosition: {x: 2.09, y: 2.13}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1256897401
