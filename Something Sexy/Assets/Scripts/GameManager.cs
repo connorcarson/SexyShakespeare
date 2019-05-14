@@ -302,6 +302,8 @@ public class GameManager : MonoBehaviour
         curtains.SetActive(false);
         winnerSelectText.GetComponent<Text>().enabled = false; //set winner select text to be inactive
         resultsButton.SetActive(true); //set results button to be active
+        
+        QAManager.instance.YorickCommentPicker(QAManager.instance.preSelectionRemark);
 
         //Debug.Log("contestant index: " + winnerIndex);
 

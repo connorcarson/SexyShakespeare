@@ -489,20 +489,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7abe31cbedc75546961d3e0d6530526, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionalWriting: {fileID: 38244743}
-  textBox: {fileID: 1410080114}
-  textBoxTail: {fileID: 498226149}
-  transitionalText:
-  - Friends, Romans, countrymen, please put your hands together for today's love-seeker!
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
 --- !u!4 &70679910
 Transform:
   m_ObjectHideFlags: 0
@@ -4066,6 +4052,32 @@ MonoBehaviour:
     characters: []
   endingData:
     player: []
+  Yorick: {fileID: 0}
+  transitionalWriting: {fileID: 38244743}
+  textBox: {fileID: 1410080114}
+  textBoxTail: {fileID: 498226149}
+  postQuestionRemark:
+  - Interesting choice. What will they say?
+  - All right, gentlebeings of brave mettle. Let's see what you're made of.
+  - What ho, contestants! Think you can handle this question?
+  - What a daring choice.
+  - Filler
+  - Filler
+  postResponseRemark:
+  - "I haven\u2019t heard anything that scandalous since I lingered too long at Lord
+    Capulet\u2019s keyhole."
+  - "Will this end in wedding rings or wanton slaughter? I can\u2019t wait!"
+  - "All this love talk is getting my coccyx stiff. Who am I kidding? It\u2019s always
+    stiff!"
+  - "If I had a nickel for everytime I\u2019d heard that answer... they\u2019d fall
+    through my ribs, probably."
+  - "Contestants! Don\u2019t forget to show those pearly whites! Remember, some of
+    us don\u2019t have the choice.)"
+  - "Hmm. I\u2019ve got a bone to pick with that answer."
+  - "I think it was Shakespeare who once said, \u201CMy anaconda don\u2019t want /
+    none unless you\u2019ve got buns, hun.\u201D Keep that in mind when choosing."
+  - 'How fascinating! Wait, can anyone hear me? I think my microbone is broken. '
+  preSelectionRemark: []
 --- !u!4 &2137703558
 Transform:
   m_ObjectHideFlags: 0

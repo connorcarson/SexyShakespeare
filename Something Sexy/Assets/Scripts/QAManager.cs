@@ -6,7 +6,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using Image = UnityEngine.UIElements.Image;
+using DG.Tweening;
+using DG.Tweening.Core;
 
 public class QAManager : MonoBehaviour
 {
@@ -28,7 +29,6 @@ public class QAManager : MonoBehaviour
     
     public Text answerText;
 
-    public Image Yorick;
     public GameObject question1Button;
     public GameObject question2Button;
     public GameObject question3Button;
@@ -49,6 +49,17 @@ public class QAManager : MonoBehaviour
     public CharacterData characterData;
     public EndingData endingData;
 
+    //info for Yorick and transitional text
+    public Image Yorick;
+    public Text transitionalWriting;
+    public Image textBox;
+    public Image textBoxTail;
+    public List<string> postQuestionRemark;
+    public List<string> postResponseRemark;
+    public List<string> preSelectionRemark;
+
+    private int YorickResponseIndex;
+    
     private void Awake()
     {
         if (instance == null)
@@ -86,7 +97,7 @@ public class QAManager : MonoBehaviour
     
     // Start is called before the first frame update
     void Start()
-    {    
+    {
         Shuffle(); //shuffle the questions
         UpdateUI(); //display selected questions
         
@@ -171,6 +182,8 @@ public class QAManager : MonoBehaviour
                 break;
         }
         
+        YorickCommentPicker(postQuestionRemark);
+        
         _currentAnswer1 = answerPool[question1Index]; //initialize string as the answer corresponding to question 1
         _currentAnswer2 = answerPool[question2Index]; //initialize string as the answer corresponding to question 2
         _currentAnswer3 = answerPool[question3Index]; //initialize string as the answer corresponding to question 3
@@ -230,6 +243,9 @@ public class QAManager : MonoBehaviour
                 
                 textTail2.SetActive(false); //deactivate middle tail of speech bubble
                 textTail3.SetActive(true); //activate right tail of speech bubble
+                
+                YorickCommentPicker(postResponseRemark);
+                
                 break;
             case 4: //if turn count is more than 3 (all contestants have answered)            
                 GameManager.instance.Rounds++; //increase round number
@@ -251,5 +267,27 @@ public class QAManager : MonoBehaviour
                 break;
         }
     }
+
+    public void YorickCommentPicker(List<string> CurrentResponsePool)
+    {
+        // set the index number to a random number between 0 and the length of the array we will select
+        YorickResponseIndex = Random.Range(0, CurrentResponsePool.Count);
+
+        string currentResponse = CurrentResponsePool[YorickResponseIndex];
+        transitionalWriting.text = currentResponse;
+        CurrentResponsePool.Remove(currentResponse);
+        
+        textBox.DOColor(Color.white, .5f);
+        textBoxTail.DOColor(Color.white, .5f);
+        transitionalWriting.DOColor(Color.black, .5f);
+    }
+
+    public void FadeOut()
+    {
+        textBox.DOColor(Color.clear, .5f);
+        textBoxTail.DOColor(Color.clear, .5f);
+        transitionalWriting.DOColor(Color.clear, .5f);
+    }
+    
 }
     
