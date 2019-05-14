@@ -13,8 +13,6 @@ public class IntroAnimationBoss : MonoBehaviour
     public GameObject rightCurtain;
     public GameObject centerCurtain;
     public GameObject button;
-    private AudioSource audioSource;
-    private AudioClip thudSound;
     public TextMeshProUGUI title;
 
     public SpriteRenderer Antony;
@@ -34,9 +32,7 @@ public class IntroAnimationBoss : MonoBehaviour
     void Start()
     {
         title.color = Color.clear;
-        audioSource = GetComponent<AudioSource>();
-        thudSound = (AudioClip)Resources.Load("thud sound");
-        audioSource.clip = thudSound;
+
         leftCurtain.transform.DOMove(new Vector3(-7.85f, -1.25f, 0f), .5f);
         StartCoroutine(DelayedSound(.3f));
         rightCurtain.transform.DOMove(new Vector3(7.62f, -1.25f, 0f), .5f).SetDelay(1f);
@@ -60,8 +56,6 @@ public class IntroAnimationBoss : MonoBehaviour
     IEnumerator DelayedSound(float seconds)
     {
         yield return new WaitForSeconds (seconds);
-        audioSource.Play();
-             
     }
 
     IEnumerator DelayedButton(float seconds)
