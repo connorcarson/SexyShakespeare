@@ -1189,7 +1189,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.94509804, g: 0.89411765, b: 0.7764706, a: 0}
+  m_BackGroundColor: {r: 0.9137255, g: 0.8666667, b: 0.89411765, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1806,6 +1806,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 494c532e1257b4640a8faff5e375f654, type: 3}
   - {fileID: 8300000, guid: b90814ecb3f44af4ebb84b2c548ddc7b, type: 3}
   - {fileID: 8300000, guid: d425290aa52cfd84699e6974b5e148c0, type: 3}
+  - {fileID: 8300000, guid: d9204a1e273e68b44993b84103710c0a, type: 3}
   audienceReactions:
   - {fileID: 8300000, guid: a5190102ba4439649b244c4fda2e9c05, type: 3}
   - {fileID: 8300000, guid: 477f2463b03e9d94c9681b562187bb46, type: 3}
@@ -1813,6 +1814,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 19dd5e441881f6f4cb0a1e5fbcbb0101, type: 3}
   - {fileID: 8300000, guid: 0a164b1c1c216a44aa4ad88396579b62, type: 3}
   - {fileID: 8300000, guid: f2f6672f06c93bf4cb9cfbdd28588fec, type: 3}
+  - {fileID: 8300000, guid: f6b35bfda5743ec47bc52f874ac8f826, type: 3}
 --- !u!4 &1914935730
 Transform:
   m_ObjectHideFlags: 0
