@@ -6,7 +6,6 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using Image = UnityEngine.UIElements.Image;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +14,7 @@ public class GameManager : MonoBehaviour
     public GameObject[] allCharacters;
     private GameObject[] _allContestantPos;
     private GameObject[] _allContestantSelection;
+    private Sprite[] _allContestantPortraits;
 
     private Button[] characterButtons;
     private Button _winnerButton;
@@ -30,9 +30,11 @@ public class GameManager : MonoBehaviour
     public GameObject pos2;
     public GameObject pos3;
     public GameObject roundText;
+    public GameObject questionTextBox;
     public GameObject winnerSelectText;
     public GameObject curtains;
     public GameObject winnerPos;
+    public GameObject portraitPos;
     
     public GameObject endPanel;
     public GameObject endTextObject;
@@ -54,13 +56,9 @@ public class GameManager : MonoBehaviour
     private Vector3 _newPos2;
     private Vector3 _newPos3;
 
-    public Image Yorick;
-    public Image YorickTextBox;
-    public GameObject YorickCommentary;
-/*
-    public Sprite [] CharacterPortraits;
-    public GameObject PortraitHolder;    
-*/
+    //public Image yorick;
+    //public Image yorickTextBox;
+    //public GameObject yorickCommentary;
 
     #region round property
     
@@ -119,16 +117,16 @@ public class GameManager : MonoBehaviour
         Button petruchioButton = Resources.Load<Button>("Prefabs/Characters/Petruchio");
         Button romeoButton = Resources.Load<Button>("Prefabs/Characters/Romeo");
 
-        Sprite antonyPortrait = Resources.Load<Sprite>("Prefabs/Borderless Icons/antony icon");
-        Sprite beatricePortrait = Resources.Load<Sprite>("Prefabs/Borderless Icons/beatrice icon");
-        Sprite benedickPortrait = Resources.Load<Sprite>("Prefabs/Borderless Icons/benedick icon");
-        Sprite cleopatraPortrait = Resources.Load<Sprite>("Prefabs/Borderless Icons/cleo icon");
-        Sprite hamletPortrait = Resources.Load<Sprite>("Prefabs/Borderless Icons/hamlet icon");
-        Sprite julietPortrait = Resources.Load<Sprite>("Prefabs/Borderless Icons/juliet icon");
-        Sprite katePortrait = Resources.Load<Sprite>("Prefabs/Borderless Icons/kate icon");
-        Sprite opheliaPortrait = Resources.Load<Sprite>("Prefabs/Borderless Icons/ophelia icon");
-        Sprite petruchioPortrait = Resources.Load<Sprite>("Prefabs/Borderless Icons/petruchio icon");
-        Sprite romeoPortrait = Resources.Load<Sprite>("Prefabs/Borderless Icons/romeo icon");
+        Sprite antonyPortrait = Resources.Load<Sprite>("Prefabs/Borderless_Icons/antony_icon_2");
+        Sprite beatricePortrait = Resources.Load<Sprite>("Prefabs/Borderless_Icons/beatrice_icon_2");
+        Sprite benedickPortrait = Resources.Load<Sprite>("Prefabs/Borderless_Icons/benedick_icon_2");
+        Sprite cleopatraPortrait = Resources.Load<Sprite>("Prefabs/Borderless_Icons/cleo_icon_2");
+        Sprite hamletPortrait = Resources.Load<Sprite>("Prefabs/Borderless_Icons/hamlet_icon_2");
+        Sprite julietPortrait = Resources.Load<Sprite>("Prefabs/Borderless_Icons/juliet_icon_2");
+        Sprite katePortrait = Resources.Load<Sprite>("Prefabs/Borderless_Icons/kate_icon_2");
+        Sprite opheliaPortrait = Resources.Load<Sprite>("Prefabs/Borderless_Icons/ophelia_icon_2");
+        Sprite petruchioPortrait = Resources.Load<Sprite>("Prefabs/Borderless_Icons/petruchio_icon_2");
+        Sprite romeoPortrait = Resources.Load<Sprite>("Prefabs/Borderless_Icons/romeo_icon_2");
 
 
         #endregion
@@ -139,13 +137,10 @@ public class GameManager : MonoBehaviour
         allCharacters = new[] {antony, beatrice, benedick, cleopatra, hamlet, juliet, kate, ophelia, petruchio, romeo};
 
         //plug all our character buttons into an array
-        characterButtons = new[]
-        {
-            antonyButton, beatriceButton, benedickButton, cleopatraButton, hamletButton, julietButton, kateButton,
-            opheliaButton, petruchioButton, romeoButton
-        };
+        characterButtons = new[] {antonyButton, beatriceButton, benedickButton, cleopatraButton, hamletButton, julietButton, kateButton, opheliaButton, petruchioButton, romeoButton};
         
-        //CharacterPortraits = new[] {antonyPortrait, beatricePortrait, cleopatraPortrait, hamletPortrait, julietPortrait, katePortrait, opheliaPortrait, petruchioPortrait, romeoPortrait};
+        //plug all our mini character portraits into an array
+        _allContestantPortraits = new[] {antonyPortrait, beatricePortrait, benedickPortrait, cleopatraPortrait, hamletPortrait, julietPortrait, katePortrait, opheliaPortrait, petruchioPortrait, romeoPortrait};
 
         //plug all of our empty game objects into an array
         _allContestantPos = new[] {pos1, pos2, pos3};
@@ -174,10 +169,9 @@ public class GameManager : MonoBehaviour
         _leftContestant = instance.pos1.transform.GetChild(0).gameObject;
         _middleContestant = instance.pos2.transform.GetChild(0).gameObject;
         _rightContestant = instance.pos3.transform.GetChild(0).gameObject;
-
-        //PortraitHolder.GetComponent<SpriteRenderer>().sprite = CharacterPortraits[CharacterSelection.instance.playerIndex];
-       
-
+        
+        //set mini character portrait according the player character selected
+        portraitPos.GetComponent<Image>().sprite = _allContestantPortraits[CharacterSelection.instance.playerIndex];
     }
 
     void Update()
@@ -285,9 +279,10 @@ public class GameManager : MonoBehaviour
         {
             roundText.SetActive(false); //deactivate the round text
             
-            QAManager.instance.question1Button.SetActive(false); //deactivate the question button
-            QAManager.instance.question2Button.SetActive(false); //repeat
-            QAManager.instance.question3Button.SetActive(false); //repeat
+            //QAManager.instance.question1Button.SetActive(false); //deactivate the question button
+            //QAManager.instance.question2Button.SetActive(false); //repeat
+            //QAManager.instance.question3Button.SetActive(false); //repeat
+            questionTextBox.SetActive(false);
 
             foreach (var selectionButton in _allContestantSelection) //for every selectionButton in our array of selection buttons
             {
