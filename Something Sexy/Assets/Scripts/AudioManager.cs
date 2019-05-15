@@ -27,7 +27,7 @@ public class AudioManager : MonoBehaviour
         }
         
         audioSource = GetComponent<AudioSource>(); //get the audio source to be used for everything other than the theme music
-        themeAudioSource = GetComponentInChildren<AudioSource>(); //get the audio source from the child GameObject, which will be used for the theme music
+        themeAudioSource = transform.GetChild(0).GetComponent<AudioSource>(); //get the audio source from the child GameObject, which will be used for the theme music
 
         PlayThemeMusic(gameSounds[0]);
     }

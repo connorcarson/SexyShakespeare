@@ -31,6 +31,7 @@ public class CharacterSelection : MonoBehaviour
 
     public void CharacterSelect(int selectionIndex)
     {
+        AudioManager.instance.PlaySound(AudioManager.instance.gameSounds[3]); //play click sound
         playerIndex = selectionIndex;
         SceneManager.LoadScene(3);
     }
