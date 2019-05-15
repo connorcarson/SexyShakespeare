@@ -195,8 +195,9 @@ public class QAManager : MonoBehaviour
                 break;
         }
         
+        PlayAudienceReaction();
         YorickCommentPicker(postQuestionRemark);
-        
+
         _currentAnswer1 = answerPool[question1Index]; //initialize string as the answer corresponding to question 1
         _currentAnswer2 = answerPool[question2Index]; //initialize string as the answer corresponding to question 2
         _currentAnswer3 = answerPool[question3Index]; //initialize string as the answer corresponding to question 3
@@ -237,6 +238,7 @@ public class QAManager : MonoBehaviour
                 
                 textTail1.SetActive(false); //deactivate left tail of speech bubble
                 textTail2.SetActive(true); //activate middle tail of speech bubble
+                PlayAudienceReaction();
                 break;
             case 3: //if contestant 3 is answering
                 charIndex = GameManager.instance.pos3.GetComponentInChildren<GameManager.AssignIndex>().fixedCharIndex;
@@ -256,7 +258,7 @@ public class QAManager : MonoBehaviour
                 
                 textTail2.SetActive(false); //deactivate middle tail of speech bubble
                 textTail3.SetActive(true); //activate right tail of speech bubble
-                
+                PlayAudienceReaction();
                 break;
             case 4: //if turn count is more than 3 (all contestants have answered)            
                 GameManager.instance.Rounds++; //increase round number
@@ -321,7 +323,19 @@ public class QAManager : MonoBehaviour
         YorickDialogueBox.SetActive(false);
         YorickPanel.SetActive(false);
     }
+
+    public void PlayAudienceReaction()
+    {
+        //pick a random number that corresponds to index positions in the audienceReaction array
+        int reactionIndex = Random.Range(0, AudioManager.instance.audienceReactions.Length);
+        //play that random audio clip
+        AudioManager.instance.PlaySound(AudioManager.instance.audienceReactions[reactionIndex]);
+    }
     
+    public void PlayClickSound()
+    {
+        AudioManager.instance.PlaySound(AudioManager.instance.gameSounds[3]);
+    }
     /*public void FadeOut()
     {
         textBox.DOColor(Color.clear, .5f);
