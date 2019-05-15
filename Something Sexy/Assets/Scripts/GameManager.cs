@@ -325,7 +325,7 @@ public class GameManager : MonoBehaviour
             default:
                 break;
         }
-        
+        AudioManager.instance.PlaySound(AudioManager.instance.gameSounds[4]);
         contestant1Select.SetActive(false); //set contestant 2 selection button to be inactive
         contestant2Select.SetActive(false); //repeat
         contestant3Select.SetActive(false); //repeat
