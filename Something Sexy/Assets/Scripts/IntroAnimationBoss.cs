@@ -34,11 +34,8 @@ public class IntroAnimationBoss : MonoBehaviour
         title.color = Color.clear;
 
         leftCurtain.transform.DOMove(new Vector3(-7.85f, -1.25f, 0f), .5f);
-        StartCoroutine(DelayedSound(.3f));
         rightCurtain.transform.DOMove(new Vector3(7.62f, -1.25f, 0f), .5f).SetDelay(1f);
-        StartCoroutine(DelayedSound(1.3f));
         centerCurtain.transform.DOMove(new Vector3(0f, 4.25f, 0f), .5f).SetDelay(2f);
-        StartCoroutine(DelayedSound(2.2f));
         title.DOColor(Color.white, 1.5f).SetDelay(2.8f);
         Antony.DOColor(Color.white, .5f).SetDelay(2.8f);
         Cleopatra.DOColor(Color.white, .5f).SetDelay(3.1f);
@@ -53,11 +50,6 @@ public class IntroAnimationBoss : MonoBehaviour
         StartCoroutine(DelayedButton(5.5f));
     }
 
-    IEnumerator DelayedSound(float seconds)
-    {
-        yield return new WaitForSeconds (seconds);
-    }
-
     IEnumerator DelayedButton(float seconds)
     {
         yield return new WaitForSeconds(seconds);
@@ -66,6 +58,7 @@ public class IntroAnimationBoss : MonoBehaviour
 
     public void LoadNewScene()
     {
+        AudioManager.instance.PlaySound(AudioManager.instance.gameSounds[3]); //play selection sound
         SceneManager.LoadScene(1);
     }
 }

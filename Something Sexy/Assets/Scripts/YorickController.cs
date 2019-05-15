@@ -35,6 +35,7 @@ public class YorickController : MonoBehaviour
 
     public void CallNewLine()
     {
+        AudioManager.instance.PlaySound(AudioManager.instance.gameSounds[3]); //play click sound
         Debug.Log("Index Location = " + indexLocation);
         //InterfaceText.DOColor(Color.clear, 1f);
        // InterfaceText.DOColor(Color.black, 1f).SetDelay(1f);
