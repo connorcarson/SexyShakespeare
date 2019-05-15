@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
     private GameObject[] _allContestantPos;
     private GameObject[] _allContestantSelection;
 
+    private Button[] characterButtons;
+    private Button _winnerButton;
+
     private GameObject _leftContestant;
     private GameObject _middleContestant;
     private GameObject _rightContestant;
@@ -29,7 +32,7 @@ public class GameManager : MonoBehaviour
     public GameObject roundText;
     public GameObject winnerSelectText;
     public GameObject curtains;
-    public GameObject resultsButton;
+    public GameObject winnerPos;
     
     public GameObject endPanel;
     public GameObject endTextObject;
@@ -104,6 +107,17 @@ public class GameManager : MonoBehaviour
         GameObject ophelia = Resources.Load<GameObject>("Prefabs/Characters/Ophelia");
         GameObject petruchio = Resources.Load<GameObject>("Prefabs/Characters/Petruchio");
         GameObject romeo = Resources.Load<GameObject>("Prefabs/Characters/Romeo");
+        
+        Button antonyButton = Resources.Load<Button>("Prefabs/Characters/Antony");
+        Button beatriceButton = Resources.Load<Button>("Prefabs/Characters/Beatrice");
+        Button benedickButton = Resources.Load<Button>("Prefabs/Characters/Benedick");
+        Button cleopatraButton = Resources.Load<Button>("Prefabs/Characters/Cleopatra");
+        Button hamletButton = Resources.Load<Button>("Prefabs/Characters/Hamlet");
+        Button julietButton = Resources.Load<Button>("Prefabs/Characters/Juliet");
+        Button kateButton = Resources.Load<Button>("Prefabs/Characters/Kate");
+        Button opheliaButton = Resources.Load<Button>("Prefabs/Characters/Ophelia");
+        Button petruchioButton = Resources.Load<Button>("Prefabs/Characters/Petruchio");
+        Button romeoButton = Resources.Load<Button>("Prefabs/Characters/Romeo");
 
         Sprite antonyPortrait = Resources.Load<Sprite>("Prefabs/Borderless Icons/antony icon");
         Sprite beatricePortrait = Resources.Load<Sprite>("Prefabs/Borderless Icons/beatrice icon");
@@ -124,6 +138,13 @@ public class GameManager : MonoBehaviour
         //plug all our character game objects into an array
         allCharacters = new[] {antony, beatrice, benedick, cleopatra, hamlet, juliet, kate, ophelia, petruchio, romeo};
 
+        //plug all our character buttons into an array
+        characterButtons = new[]
+        {
+            antonyButton, beatriceButton, benedickButton, cleopatraButton, hamletButton, julietButton, kateButton,
+            opheliaButton, petruchioButton, romeoButton
+        };
+        
         //CharacterPortraits = new[] {antonyPortrait, beatricePortrait, cleopatraPortrait, hamletPortrait, julietPortrait, katePortrait, opheliaPortrait, petruchioPortrait, romeoPortrait};
 
         //plug all of our empty game objects into an array
@@ -285,15 +306,21 @@ public class GameManager : MonoBehaviour
         {
             case 1: //if the player selected the contestant parented to position 1
                 winnerIndex = _leftContestant.GetComponent<GameManager.AssignIndex>().fixedCharIndex; //set winner index equal to the character index of the character in position 1
-                _leftContestant.GetComponent<SpriteRenderer>().enabled = true; //activate the sprite of the contestant in position 1
+                //_leftContestant.GetComponent<SpriteRenderer>().enabled = true; //activate the sprite of the contestant in position 1
+                _winnerButton = Instantiate(characterButtons[winnerIndex], winnerPos.transform);
+                _winnerButton.GetComponent<RectTransform>().localScale = new Vector3(15, 15, 15);                
                 break;
             case 2:
                 winnerIndex = _middleContestant.GetComponent<GameManager.AssignIndex>().fixedCharIndex; //set winner index equal to the character index of the character in position 2
-                _middleContestant.GetComponent<SpriteRenderer>().enabled = true; //activate the sprite of the contestant in position 2
+                //_middleContestant.GetComponent<SpriteRenderer>().enabled = true; //activate the sprite of the contestant in position 2
+                _winnerButton = Instantiate(characterButtons[winnerIndex], winnerPos.transform);
+                _winnerButton.GetComponent<RectTransform>().localScale = new Vector3(15, 15, 15);
                 break;
             case 3:
                 winnerIndex = _rightContestant.GetComponent<GameManager.AssignIndex>().fixedCharIndex; //set winner index equal to the character index of the character in position 3
-                _rightContestant.GetComponent<SpriteRenderer>().enabled = true; //activate the sprite of the contestant in position 3
+                //_rightContestant.GetComponent<SpriteRenderer>().enabled = true; //activate the sprite of the contestant in position 3
+                _winnerButton = Instantiate(characterButtons[winnerIndex], winnerPos.transform);
+                _winnerButton.GetComponent<RectTransform>().localScale = new Vector3(15, 15, 15);
                 break;
             default:
                 break;
@@ -304,7 +331,6 @@ public class GameManager : MonoBehaviour
         contestant3Select.SetActive(false); //repeat
         curtains.SetActive(false);
         winnerSelectText.GetComponent<Text>().enabled = false; //set winner select text to be inactive
-        resultsButton.SetActive(true); //set results button to be active
         
         QAManager.instance.YorickCommentPicker(QAManager.instance.preSelectionRemark);
 

@@ -16,7 +16,7 @@ public class QuestionMouseOver : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("You touched me!");
+        //Debug.Log("You touched me!");
         text.color = Color.white;
     }
 

@@ -158,10 +158,10 @@ public class QAManager : MonoBehaviour
     
     public void ChooseQuestion(int questionNum) //player selects the question they wish to ask
     {
-        Debug.Log("Hello I am working");
-        question1Button.GetComponent<Button>().interactable = false; //make question 1 button nonactive
-        question2Button.GetComponent<Button>().interactable = false; //repeat for question 2 button
-        question3Button.GetComponent<Button>().interactable = false; //repeat for question 3 button
+        //Debug.Log("Hello I am working");
+        //question1Button.GetComponent<Button>().interactable = false; //make question 1 button nonactive
+        //question2Button.GetComponent<Button>().interactable = false; //repeat for question 2 button
+        //question3Button.GetComponent<Button>().interactable = false; //repeat for question 3 button
         
         charIndex = GameManager.instance.pos1.GetComponentInChildren<GameManager.AssignIndex>().fixedCharIndex;
         //initialize charIndex as char index variable assigned to the contestant parented to position 1
@@ -173,14 +173,23 @@ public class QAManager : MonoBehaviour
             case 1: //if question 1 selected          
                 answerText.text = answerPool[question1Index]; //set the answer text to the answer corresponding to question 1
                 answerIndex = question1Index; //set answer index to question 1 index
+                question1Button.GetComponent<Button>().enabled = false;
+                question2Button.GetComponent<Button>().interactable = false; //make question 2 button nonactive
+                question3Button.GetComponent<Button>().interactable = false; //make question 3 button nonactive
                 break;
             case 2: //if question 2 selected             
                 answerText.text = answerPool[question2Index]; //set the answer text to the answer corresponding to question 2
                 answerIndex = question2Index; //set answer index to question 2 index
+                question2Button.GetComponent<Button>().enabled = false;
+                question1Button.GetComponent<Button>().interactable = false; //make question 1 button nonactive
+                question3Button.GetComponent<Button>().interactable = false; //make question 2 button nonactive
                 break;
             case 3: //if question 3 selected
                 answerText.text = answerPool[question3Index]; //set the answer text to the answer corresponding to question 3
                 answerIndex = question3Index; //set answer index to question 3 index
+                question3Button.GetComponent<Button>().enabled = false;
+                question1Button.GetComponent<Button>().interactable = false; //make question 1 button nonactive
+                question2Button.GetComponent<Button>().interactable = false; //make question 2 button nonactive
                 break;
             default:
                 break;
@@ -260,14 +269,17 @@ public class QAManager : MonoBehaviour
                 nextButton.SetActive(false); //deactivate answer UI 
                 answerDialogue.SetActive(false); //etc.
                 textTail3.SetActive(false); //etc.
-                
+               
+                question1Button.GetComponent<Button>().enabled = true;
+                question2Button.GetComponent<Button>().enabled = true;
+                question3Button.GetComponent<Button>().enabled = true;
                 question1Button.GetComponent<Button>().interactable = true; //set question 1 button to be active
                 question2Button.GetComponent<Button>().interactable = true; //repeat for question 2 button
                 question3Button.GetComponent<Button>().interactable = true; //repeat for question 3 button
             
                 Shuffle(); //shuffle remaining questions
                 UpdateUI(); //display selected questions
-            
+                
                 contestantTurn = 1; //reset contestant turn number
                 break;
             default:
