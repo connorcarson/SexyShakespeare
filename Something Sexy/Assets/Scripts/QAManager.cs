@@ -77,19 +77,19 @@ public class QAManager : MonoBehaviour
 
         #region populate all arrays/lists using our .json files
 
-        _questionJson = Application.dataPath + "/Text/AllQuestions.json"; //find location of AllQuestions.json
+        _questionJson = Application.dataPath + "/Resources/Text/AllQuestions.json"; //find location of AllQuestions.json
         string allQuestionText = File.ReadAllText(_questionJson); //read all the text in that .json file
         questionData = QuestionData.CreatFromJson(allQuestionText); //convert text in that .json file into something that Unity can read
         //(in this case, an object containing a List of strings)
 
         questionPool = questionData.questionPool.questions; //initialize our List variable as the List of strings in our .json file
 
-        _answerJson = Application.dataPath + "/Text/AllAnswers.json"; //find location of AllAnswers.json
+        _answerJson = Application.dataPath + "/Resources/Text/AllAnswers.json"; //find location of AllAnswers.json
         string allAnswerText = File.ReadAllText(_answerJson); //read all the text in that .json file
         characterData = CharacterData.CreateFromJson(allAnswerText); //convert text in that .json file into something that Unity can read
         //(in this case, an array of objects, each containing a string name, and a List of string answers)
 
-        _endingJson = Application.dataPath + "/Text/AllEndings.json"; //find location of AllEndings.json
+        _endingJson = Application.dataPath + "/Resources/Text/AllEndings.json"; //find location of AllEndings.json
         string allEndingText = File.ReadAllText(_endingJson); //read all the text in that .json file
         endingData = EndingData.CreateFromJson(allEndingText); //convert text in that .json file into something that Unity can read
         //(in this case, an array of objects, each containing a string name, and an array of string parings)
@@ -104,25 +104,7 @@ public class QAManager : MonoBehaviour
         Shuffle(); //shuffle the questions
         UpdateUI(); //display selected questions
         AudioManager.instance.PlaySound(AudioManager.instance.gameSounds[1]);
-        
-        //WriteNewJson(fileLocation); //use to creat new Json file, if file does not already exist.
     }
-
-    /*void WriteNewJson(string fileLocation)
-    {
-        currentNode = new QANode(
-            1, 
-            "this will be question 1",
-            "this will be question 2",
-            "this will be question 3",
-            "this will be answer 1",
-            "this will be answer 2",
-            "this will be answer 3");
-
-        string JsonStr = JsonUtility.ToJson(currentNode, true);
-        
-        File.WriteAllText(fileLocation, JsonStr);
-    }*/
 
     void Shuffle() //shuffles index numbers used to randomly select questions
     {
@@ -157,12 +139,7 @@ public class QAManager : MonoBehaviour
     }
     
     public void ChooseQuestion(int questionNum) //player selects the question they wish to ask
-    {
-        //Debug.Log("Hello I am working");
-        //question1Button.GetComponent<Button>().interactable = false; //make question 1 button nonactive
-        //question2Button.GetComponent<Button>().interactable = false; //repeat for question 2 button
-        //question3Button.GetComponent<Button>().interactable = false; //repeat for question 3 button
-        
+    {   
         charIndex = GameManager.instance.pos1.GetComponentInChildren<GameManager.AssignIndex>().fixedCharIndex;
         //initialize charIndex as char index variable assigned to the contestant parented to position 1
         answerPool = characterData.characters[charIndex].answers;
@@ -336,12 +313,6 @@ public class QAManager : MonoBehaviour
     {
         AudioManager.instance.PlaySound(AudioManager.instance.gameSounds[3]);
     }
-    /*public void FadeOut()
-    {
-        textBox.DOColor(Color.clear, .5f);
-        textBoxTail.DOColor(Color.clear, .5f);
-        transitionalWriting.DOColor(Color.clear, .5f);
-    }*/
     
 }
     

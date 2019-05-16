@@ -24,7 +24,7 @@ public class ShowResults : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("Got clicked down!");
+        //Debug.Log("Got clicked down!");
     }
 
 }

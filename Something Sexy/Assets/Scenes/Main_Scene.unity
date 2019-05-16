@@ -618,7 +618,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 190.79994, y: -138.6}
-  m_SizeDelta: {x: 120, y: 170}
+  m_SizeDelta: {x: 120, y: 139.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &90281855
 MonoBehaviour:
@@ -984,7 +984,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -31.6}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 262, y: -52.400005}
+  m_AnchoredPosition: {x: 262, y: -61.899994}
   m_SizeDelta: {x: 100, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &230814918
@@ -2106,14 +2106,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8867924, g: 0.7654859, b: 0.8692189, a: 1}
+  m_Color: {r: 0.9568628, g: 0.9176471, b: 0.9294118, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2201,7 +2201,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 325.79993, y: -199.1}
+  m_AnchoredPosition: {x: 325.79993, y: -185.27}
   m_SizeDelta: {x: 62.3, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1159109595
@@ -2449,7 +2449,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -18}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 185.79994, y: -48.2}
+  m_AnchoredPosition: {x: 185.79994, y: -57.69999}
   m_SizeDelta: {x: 100, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1287286389
@@ -2602,7 +2602,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 105.79994, y: -50.400005}
+  m_AnchoredPosition: {x: 105.79994, y: -59.9}
   m_SizeDelta: {x: 100, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1387558009
@@ -4262,9 +4262,9 @@ MonoBehaviour:
   - Interesting choice. What will they say?
   - All right, gentlebeings of brave mettle. Let's see what you're made of.
   - What ho, contestants! Think you can handle this question?
-  - What a daring choice.
-  - Filler
-  - Filler
+  - What a daring choice. How will they respond?
+  - My, my! Such a provactive query!
+  - Most intriguing! Do you dare to answer truthfully, contestants?
   postResponseRemark:
   - "I haven\u2019t heard anything that scandalous since I lingered too long at Lord
     Capulet\u2019s keyhole."
