@@ -8,7 +8,7 @@ using DG.Tweening.Core;
 using TMPro;
 using Image = UnityEngine.UI.Image;
 
-public class TooltipController : MonoBehaviour
+public class TooltipController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public Image tooltip;
     public TextMeshProUGUI tooltipText;
@@ -26,8 +26,20 @@ public class TooltipController : MonoBehaviour
 
         
     }
+    
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        tooltip.DOColor(parchmentColor, .5f);
+        tooltipText.DOColor(Color.black, .5f);
+    }
 
-    private void OnMouseOver()
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        tooltip.DOColor(Color.clear, .5f);
+        tooltipText.DOColor(Color.clear, .5f);
+    }
+    
+    /*private void OnMouseOver()
     {
         tooltip.DOColor(parchmentColor, .5f);
         tooltipText.DOColor(Color.black, .5f);
@@ -37,5 +49,5 @@ public class TooltipController : MonoBehaviour
     {
         tooltip.DOColor(Color.clear, .5f);
         tooltipText.DOColor(Color.clear, .5f);
-    }
+    }*/
 }

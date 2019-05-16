@@ -77,19 +77,19 @@ public class QAManager : MonoBehaviour
 
         #region populate all arrays/lists using our .json files
 
-        _questionJson = Application.dataPath + "/Resources/Text/AllQuestions.json"; //find location of AllQuestions.json
+        _questionJson = Application.streamingAssetsPath + "/Text/AllQuestions.json"; //find location of AllQuestions.json
         string allQuestionText = File.ReadAllText(_questionJson); //read all the text in that .json file
         questionData = QuestionData.CreatFromJson(allQuestionText); //convert text in that .json file into something that Unity can read
         //(in this case, an object containing a List of strings)
 
         questionPool = questionData.questionPool.questions; //initialize our List variable as the List of strings in our .json file
 
-        _answerJson = Application.dataPath + "/Resources/Text/AllAnswers.json"; //find location of AllAnswers.json
+        _answerJson = Application.streamingAssetsPath + "/Text/AllAnswers.json"; //find location of AllAnswers.json
         string allAnswerText = File.ReadAllText(_answerJson); //read all the text in that .json file
         characterData = CharacterData.CreateFromJson(allAnswerText); //convert text in that .json file into something that Unity can read
         //(in this case, an array of objects, each containing a string name, and a List of string answers)
 
-        _endingJson = Application.dataPath + "/Resources/Text/AllEndings.json"; //find location of AllEndings.json
+        _endingJson = Application.streamingAssetsPath + "/Text/AllEndings.json"; //find location of AllEndings.json
         string allEndingText = File.ReadAllText(_endingJson); //read all the text in that .json file
         endingData = EndingData.CreateFromJson(allEndingText); //convert text in that .json file into something that Unity can read
         //(in this case, an array of objects, each containing a string name, and an array of string parings)
