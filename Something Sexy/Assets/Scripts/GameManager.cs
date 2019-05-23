@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     public GameObject curtains;
     public GameObject winnerPos;
     public GameObject portraitPos;
+    public GameObject playerName;
 
     public GameObject endPanel;
     public GameObject endTextObject;
@@ -311,6 +312,8 @@ public class GameManager : MonoBehaviour
             //QAManager.instance.question2Button.SetActive(false); //repeat
             //QAManager.instance.question3Button.SetActive(false); //repeat
             questionTextBox.SetActive(false);
+            playerName.SetActive(false);
+            
 
             foreach (var selectionButton in _allContestantSelection
             ) //for every selectionButton in our array of selection buttons

@@ -230,7 +230,7 @@ RectTransform:
   m_Children:
   - {fileID: 1831738216}
   m_Father: {fileID: 824566644}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1780,10 +1780,10 @@ RectTransform:
   - {fileID: 1410080113}
   - {fileID: 1190942869}
   - {fileID: 164559095}
+  - {fileID: 1290618639}
   - {fileID: 1087109003}
   - {fileID: 9848014}
   - {fileID: 1757158823}
-  - {fileID: 1290618639}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2044,7 +2044,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 824566644}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2477,7 +2477,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 824566644}
-  m_RootOrder: 19
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3620,7 +3620,7 @@ RectTransform:
   m_Children:
   - {fileID: 467239746}
   m_Father: {fileID: 824566644}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4436,6 +4436,7 @@ MonoBehaviour:
   curtains: {fileID: 484358350}
   winnerPos: {fileID: 1128790792}
   portraitPos: {fileID: 935316004}
+  playerName: {fileID: 1290618638}
   endPanel: {fileID: 1087109002}
   endTextObject: {fileID: 9848013}
   endButton: {fileID: 1831738212}
