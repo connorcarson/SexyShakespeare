@@ -35,6 +35,7 @@ public class CharacterSelection : MonoBehaviour
             Destroy(gameObject);
         }
         
+
         // Fades each sprite from alpha of 0 to alpha 1 (or 255) over a period of 2.5 seconds
         Antony.DOFade(1f, 2.5f);
         Beatrice.DOFade(1f, 2.5f);

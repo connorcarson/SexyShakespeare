@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    
+
     public GameObject[] allCharacters;
     private GameObject[] _allContestantPos;
     private GameObject[] _allContestantSelection;
@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     public GameObject curtains;
     public GameObject winnerPos;
     public GameObject portraitPos;
-    
+
     public GameObject endPanel;
     public GameObject endTextObject;
     public GameObject endButton;
@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
 
     public int pos1Index;
     public int pos2Index;
-    public int pos3Index; 
+    public int pos3Index;
     public int contestant1Index;
     public int contestant2Index;
     public int contestant3Index;
@@ -60,8 +60,11 @@ public class GameManager : MonoBehaviour
     //public Image yorickTextBox;
     //public GameObject yorickCommentary;
 
+    public TextMeshProUGUI characterNameText;
+
+
     #region round property
-    
+
     public int roundNum = 1;
     public int maxRounds = 6;
 
@@ -76,10 +79,10 @@ public class GameManager : MonoBehaviour
                 roundNum = maxRounds;
             }
         }
-    }    
+    }
 
     #endregion
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -105,7 +108,7 @@ public class GameManager : MonoBehaviour
         GameObject ophelia = Resources.Load<GameObject>("Prefabs/Characters/Ophelia");
         GameObject petruchio = Resources.Load<GameObject>("Prefabs/Characters/Petruchio");
         GameObject romeo = Resources.Load<GameObject>("Prefabs/Characters/Romeo");
-        
+
         Button antonyButton = Resources.Load<Button>("Prefabs/Characters/Antony");
         Button beatriceButton = Resources.Load<Button>("Prefabs/Characters/Beatrice");
         Button benedickButton = Resources.Load<Button>("Prefabs/Characters/Benedick");
@@ -132,36 +135,46 @@ public class GameManager : MonoBehaviour
         #endregion
 
         #region populate our arrays
-        
+
         //plug all our character game objects into an array
         allCharacters = new[] {antony, beatrice, benedick, cleopatra, hamlet, juliet, kate, ophelia, petruchio, romeo};
 
         //plug all our character buttons into an array
-        characterButtons = new[] {antonyButton, beatriceButton, benedickButton, cleopatraButton, hamletButton, julietButton, kateButton, opheliaButton, petruchioButton, romeoButton};
-        
+        characterButtons = new[]
+        {
+            antonyButton, beatriceButton, benedickButton, cleopatraButton, hamletButton, julietButton, kateButton,
+            opheliaButton, petruchioButton, romeoButton
+        };
+
         //plug all our mini character portraits into an array
-        _allContestantPortraits = new[] {antonyPortrait, beatricePortrait, benedickPortrait, cleopatraPortrait, hamletPortrait, julietPortrait, katePortrait, opheliaPortrait, petruchioPortrait, romeoPortrait};
+        _allContestantPortraits = new[]
+        {
+            antonyPortrait, beatricePortrait, benedickPortrait, cleopatraPortrait, hamletPortrait, julietPortrait,
+            katePortrait, opheliaPortrait, petruchioPortrait, romeoPortrait
+        };
 
         //plug all of our empty game objects into an array
         _allContestantPos = new[] {pos1, pos2, pos3};
-        
+
         //plug all of our char selection buttons into an array
-        _allContestantSelection = new []{contestant1Select, contestant2Select, contestant3Select};
-        
+        _allContestantSelection = new[] {contestant1Select, contestant2Select, contestant3Select};
+
         #endregion
 
         #region position contestant selection UI
-        
-        _newPos = Camera.main.ScreenToWorldPoint(contestant1Select.transform.position); //convert screen position of char selection UI to world position
+
+        _newPos = Camera.main.ScreenToWorldPoint(contestant1Select.transform
+            .position); //convert screen position of char selection UI to world position
         _newPos2 = Camera.main.ScreenToWorldPoint(contestant2Select.transform.position); //repeat
         _newPos3 = Camera.main.ScreenToWorldPoint(contestant3Select.transform.position); //repeat
-        
-        pos1.transform.position = new Vector3(_newPos.x, _newPos.y, pos1.transform.position.z); //move character game object to new position 
+
+        pos1.transform.position =
+            new Vector3(_newPos.x, _newPos.y, pos1.transform.position.z); //move character game object to new position 
         pos2.transform.position = new Vector3(_newPos2.x, _newPos2.y, pos2.transform.position.z); //repeat
         pos3.transform.position = new Vector3(_newPos3.x, _newPos3.y, pos3.transform.position.z); //repeat
-        
+
         #endregion
-        
+
         FindPlayersPartner(); //Find the canonical match of the player's selected character
         FindContestants(); //Find two other random contestants
         ShuffleContestants(); //Mix up the order in which they appear
@@ -169,9 +182,10 @@ public class GameManager : MonoBehaviour
         _leftContestant = instance.pos1.transform.GetChild(0).gameObject;
         _middleContestant = instance.pos2.transform.GetChild(0).gameObject;
         _rightContestant = instance.pos3.transform.GetChild(0).gameObject;
-        
+
         //set mini character portrait according the player character selected
         portraitPos.GetComponent<Image>().sprite = _allContestantPortraits[CharacterSelection.instance.playerIndex];
+        CharacterNameTextSet(CharacterSelection.instance.playerIndex);
     }
 
     void Update()
@@ -217,17 +231,22 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
-    
+
     void FindContestants() //finds contestant 2 and 3's index numbers
-    {        
-        contestant2Index = Random.Range(0, allCharacters.Length); //contestant 2's index number is a random number between 0 and 9 A.K.A. our characters index numbers in the char array
+    {
+        contestant2Index =
+            Random.Range(0,
+                allCharacters
+                    .Length); //contestant 2's index number is a random number between 0 and 9 A.K.A. our characters index numbers in the char array
         contestant3Index = Random.Range(0, allCharacters.Length); //repeat for contestant 3
 
         if (contestant2Index == contestant1Index || //if the index of contestant 2 is equal to contestant 1's number
             contestant3Index == contestant1Index || //or if the index of contestant 3 is equal to contestant 1's number
             contestant2Index == contestant3Index || //or if the index of contest 2 or 3 are equal to each other
-            contestant2Index == CharacterSelection.instance.playerIndex || //or if the index of 2 is equal to the player char index
-            contestant3Index == CharacterSelection.instance.playerIndex) //or if the index of 3 is equal to the player char index
+            contestant2Index ==
+            CharacterSelection.instance.playerIndex || //or if the index of 2 is equal to the player char index
+            contestant3Index == CharacterSelection.instance.playerIndex
+        ) //or if the index of 3 is equal to the player char index
         {
             FindContestants(); //start this function over A.K.A. re-randomize our character index numbers until there are no repeats
         }
@@ -235,28 +254,36 @@ public class GameManager : MonoBehaviour
 
     void ShuffleContestants() //instantiates the contestants and shuffle them
     {
-        pos1Index = Random.Range(0, _allContestantPos.Length); //position 1's index number is a random number between 0 and 2 A.K.A. the length of our positions array
+        pos1Index = Random.Range(0,
+            _allContestantPos
+                .Length); //position 1's index number is a random number between 0 and 2 A.K.A. the length of our positions array
         pos2Index = Random.Range(0, _allContestantPos.Length); //repeat for position 2
         pos3Index = Random.Range(0, _allContestantPos.Length); //repeat for position 3
 
-        if (pos1Index == pos2Index || pos2Index == pos3Index || pos3Index == pos1Index) //if any position index numbers are equal to each other
+        if (pos1Index == pos2Index || pos2Index == pos3Index || pos3Index == pos1Index
+        ) //if any position index numbers are equal to each other
         {
             ShuffleContestants(); //start this function over
         }
         else //otherwise
         {
-            GameObject contestant1 = Instantiate(allCharacters[contestant1Index], //make an object from the array of prefabs based on contestant 1's index
-                _allContestantPos[pos1Index].transform.position, Quaternion.identity); //position the object at one of the positions in the position array, according to its random pos index
+            GameObject contestant1 = Instantiate(
+                allCharacters[
+                    contestant1Index], //make an object from the array of prefabs based on contestant 1's index
+                _allContestantPos[pos1Index].transform.position,
+                Quaternion.identity); //position the object at one of the positions in the position array, according to its random pos index
             GameObject contestant2 = Instantiate(allCharacters[contestant2Index], //repeat for contestant2
                 _allContestantPos[pos2Index].transform.position, Quaternion.identity);
             GameObject contestant3 = Instantiate(allCharacters[contestant3Index], //repeat for contestant3
                 _allContestantPos[pos3Index].transform.position, Quaternion.identity);
 
-            contestant1.transform.SetParent(_allContestantPos[pos1Index].transform); //parent contestant 1 to the empty transform where it's located
+            contestant1.transform.SetParent(_allContestantPos[pos1Index]
+                .transform); //parent contestant 1 to the empty transform where it's located
             contestant2.transform.SetParent(_allContestantPos[pos2Index].transform); //repeat for contestant 2
             contestant3.transform.SetParent(_allContestantPos[pos3Index].transform); //repeat for contestant 3
 
-            contestant1.AddComponent<AssignIndex>().fixedCharIndex = contestant1Index; //assign character index as a public variable to the contestant1 game object
+            contestant1.AddComponent<AssignIndex>().fixedCharIndex =
+                contestant1Index; //assign character index as a public variable to the contestant1 game object
             contestant2.AddComponent<AssignIndex>().fixedCharIndex = contestant2Index; //repeat for contestant 2
             contestant3.AddComponent<AssignIndex>().fixedCharIndex = contestant3Index; //repeat for contestant 3
 
@@ -266,7 +293,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public class AssignIndex : MonoBehaviour //this a class just for assigning the char index as a public variable to our contestant game objects
+    public class
+        AssignIndex : MonoBehaviour //this a class just for assigning the char index as a public variable to our contestant game objects
     {
         public int fixedCharIndex;
     }
@@ -274,45 +302,52 @@ public class GameManager : MonoBehaviour
     void UpdateRounds() //update the round number
     {
         roundText.GetComponent<Text>().text = "Round: " + Rounds; //set round text
-        
+
         if (roundNum == maxRounds) //if played rounds is equal to maximum number of rounds allowed
         {
             roundText.SetActive(false); //deactivate the round text
-            
+
             //QAManager.instance.question1Button.SetActive(false); //deactivate the question button
             //QAManager.instance.question2Button.SetActive(false); //repeat
             //QAManager.instance.question3Button.SetActive(false); //repeat
             questionTextBox.SetActive(false);
 
-            foreach (var selectionButton in _allContestantSelection) //for every selectionButton in our array of selection buttons
+            foreach (var selectionButton in _allContestantSelection
+            ) //for every selectionButton in our array of selection buttons
             {
                 selectionButton.GetComponent<Button>().interactable = true; //set them to be interactable
             }
-            
+
             QAManager.instance.EndYorick();
 
             roundNum = 0; //reset round number
         }
-    } 
-    
+    }
+
     public void WinnerSelect(int posIndex) //player selects the winning contestant
     {
         switch (posIndex)
         {
             case 1: //if the player selected the contestant parented to position 1
-                winnerIndex = _leftContestant.GetComponent<GameManager.AssignIndex>().fixedCharIndex; //set winner index equal to the character index of the character in position 1
+                winnerIndex =
+                    _leftContestant.GetComponent<GameManager.AssignIndex>()
+                        .fixedCharIndex; //set winner index equal to the character index of the character in position 1
                 //_leftContestant.GetComponent<SpriteRenderer>().enabled = true; //activate the sprite of the contestant in position 1
                 _winnerButton = Instantiate(characterButtons[winnerIndex], winnerPos.transform);
-                _winnerButton.GetComponent<RectTransform>().localScale = new Vector3(15, 15, 15);                
+                _winnerButton.GetComponent<RectTransform>().localScale = new Vector3(15, 15, 15);
                 break;
             case 2:
-                winnerIndex = _middleContestant.GetComponent<GameManager.AssignIndex>().fixedCharIndex; //set winner index equal to the character index of the character in position 2
+                winnerIndex =
+                    _middleContestant.GetComponent<GameManager.AssignIndex>()
+                        .fixedCharIndex; //set winner index equal to the character index of the character in position 2
                 //_middleContestant.GetComponent<SpriteRenderer>().enabled = true; //activate the sprite of the contestant in position 2
                 _winnerButton = Instantiate(characterButtons[winnerIndex], winnerPos.transform);
                 _winnerButton.GetComponent<RectTransform>().localScale = new Vector3(15, 15, 15);
                 break;
             case 3:
-                winnerIndex = _rightContestant.GetComponent<GameManager.AssignIndex>().fixedCharIndex; //set winner index equal to the character index of the character in position 3
+                winnerIndex =
+                    _rightContestant.GetComponent<GameManager.AssignIndex>()
+                        .fixedCharIndex; //set winner index equal to the character index of the character in position 3
                 //_rightContestant.GetComponent<SpriteRenderer>().enabled = true; //activate the sprite of the contestant in position 3
                 _winnerButton = Instantiate(characterButtons[winnerIndex], winnerPos.transform);
                 _winnerButton.GetComponent<RectTransform>().localScale = new Vector3(15, 15, 15);
@@ -320,13 +355,14 @@ public class GameManager : MonoBehaviour
             default:
                 break;
         }
+
         AudioManager.instance.PlaySound(AudioManager.instance.gameSounds[4]);
         contestant1Select.SetActive(false); //set contestant 2 selection button to be inactive
         contestant2Select.SetActive(false); //repeat
         contestant3Select.SetActive(false); //repeat
         curtains.SetActive(false);
         winnerSelectText.GetComponent<Text>().enabled = false; //set winner select text to be inactive
-        
+
         QAManager.instance.YorickCommentPicker(QAManager.instance.preSelectionRemark);
 
         //Debug.Log("contestant index: " + winnerIndex);
@@ -336,15 +372,16 @@ public class GameManager : MonoBehaviour
     public void ShowResults() //activates all ending UI and first part of ending text
     {
         _endText = endTextObject.GetComponent<TextMeshProUGUI>(); //getting reference to TextMeshProUGUI component
-        
+
         endTextObject.SetActive(true); //set ending UI game object to be active
         endPanel.SetActive(true); //etc.
         endButton.SetActive(true); //etc,
         _endText.DOColor(Color.black, 1f); //etc.
-        
-        _endText.text = QAManager.instance.endingData.player[CharacterSelection.instance.playerIndex].pairing[winnerIndex].part1;
+
+        _endText.text = QAManager.instance.endingData.player[CharacterSelection.instance.playerIndex]
+            .pairing[winnerIndex].part1;
         //set ending text according to the index of the player character, the index of the selected winning contestant and the first part of the text
-        
+
         //Debug.Log(QAManager.instance.endingData.player[CharacterSelection.instance.playerIndex].pairing[winnerIndex].part1);
         //Debug.Log(QAManager.instance.endingData.player[CharacterSelection.instance.playerIndex].pairing[winnerIndex].part2);
         //Debug.Log(QAManager.instance.endingData.player[CharacterSelection.instance.playerIndex].pairing[winnerIndex].part3);
@@ -357,10 +394,12 @@ public class GameManager : MonoBehaviour
         switch (_endingNum)
         {
             case 2: //if ending number is 2, show part 2 of the ending
-                _endText.text = QAManager.instance.endingData.player[CharacterSelection.instance.playerIndex].pairing[winnerIndex].part2;
+                _endText.text = QAManager.instance.endingData.player[CharacterSelection.instance.playerIndex]
+                    .pairing[winnerIndex].part2;
                 break;
             case 3: //if ending number is 3, show part 3 of the ending
-                _endText.text = QAManager.instance.endingData.player[CharacterSelection.instance.playerIndex].pairing[winnerIndex].part3;
+                _endText.text = QAManager.instance.endingData.player[CharacterSelection.instance.playerIndex]
+                    .pairing[winnerIndex].part3;
                 endTextObject.transform.GetChild(0).gameObject.SetActive(false);
                 restartButton.SetActive(true);
                 break;
@@ -375,7 +414,46 @@ public class GameManager : MonoBehaviour
         Destroy(GameManager.instance);
         Destroy(QAManager.instance);
         Destroy(CharacterSelection.instance);
-        
+
         SceneManager.LoadScene(2);
+    }
+
+    public void CharacterNameTextSet(int selectionIndex)
+    {
+        switch (CharacterSelection.instance.playerIndex)
+        {
+            case 0: //Antony
+                characterNameText.text = "Antony";
+                break;
+            case 1: //Beatrice
+                characterNameText.text = "Beatrice";
+                break;
+            case 2: //Benedick
+                characterNameText.text = "Benedick";
+                break;
+            case 3: //Cleopatra
+                characterNameText.text = "Cleopatra";
+                break;
+            case 4: //Hamlet
+                characterNameText.text = "Hamlet";
+                break;
+            case 5: //Juliet
+                characterNameText.text = "Juliet";
+                break;
+            case 6: //Kate
+                characterNameText.text = "Kate";
+                break;
+            case 7: //Ophelia
+                characterNameText.text = "Ophelia";
+                break;
+            case 8: //Petruchio
+                characterNameText.text = "Petruchio";
+                break;
+            case 9: //Romeo
+                characterNameText.text = "Romeo";
+                break;
+            default:
+                break;
+        }
     }
 }
